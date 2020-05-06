@@ -4,6 +4,7 @@ Just some ramblings
 
 ## Ideas
 
+* Check the installation instructions
 * cpanfile
 * PSGI
 * Starman
@@ -20,4 +21,5 @@ Just some ramblings
  ## SEE ALSO
  
  * http://otobo.de
+ * [RotherOSS Github repositories](https://github.com/RotherOSS/otobo)
 
