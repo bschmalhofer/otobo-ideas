@@ -8,7 +8,7 @@ Here be only some ramblings.
 
 ### Use Github Issues for bugtracking
 
-Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues should be used. Thanks for the nice Brotzeit by the way! https://github.com/RotherOSS/otobo/issues/1 is the first issue.
+Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues should be used. Thanks for the nice Brotzeit by the way! https://github.com/RotherOSS/doc-otobo-installation/issues/1 is the first real issue. https://github.com/RotherOSS/otobo/issues/1 had been inadvertently added.
 
 ### Other ideas
 
