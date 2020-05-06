@@ -1,6 +1,8 @@
-# otobo-ideas: Just some notes [Otobo](http://otobo.de)
+# otobo-ideas: Just some notes OTOBO
 
-Just some ramblings
+OTOBO is an open source ticketing system derived from ((OTRS)) Community Edition.
+
+Here be only some ramblings.
 
 ## Ideas
 
