@@ -35,6 +35,10 @@ Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues s
   * Support for FastCGI
   * Oracle Ticket-Database
   * DB2 Ticket-Database
+* Features to add
+  * SQLite backend, might be useful for devel and testing
+* Check the adaptions done in O-Fork
+
   
  ## SEE ALSO
  
