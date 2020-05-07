@@ -20,6 +20,10 @@ Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues s
 * Document the found versions
 * Check the requirments
 
+### Development process
+
+Still confused how /opt/otobo and Git checkout can cooperate.
+
 ### Other ideas
 
 * Check the installation instructions
