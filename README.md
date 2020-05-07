@@ -26,7 +26,7 @@ Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues s
 * cpanfile
 * PSGI
 * Starman
-* Docker image
+* Docker image, see https://github.com/complemento/docker.otrs
 * Perl::Critic
 * Perl::Tidy
 * Devel::NYTProf
