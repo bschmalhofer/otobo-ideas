@@ -20,10 +20,6 @@ Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues s
 * Document the found versions
 * Check the requirments
 
-### Development process
-
-Still confused how /opt/otobo and Git checkout can cooperate.
-
 ### Other ideas
 
 * Check the installation instructions
@@ -43,8 +39,17 @@ Still confused how /opt/otobo and Git checkout can cooperate.
   * SQLite backend, might be useful for devel and testing
 * Check the adaptions done in O-Fork
 
-  
- ## SEE ALSO
+## Development process
+
+### Link /opt/otobo to Git checkout
+
+How would this work? SetPermissions.pl messes with the whole dir.
+
+### Linking an individual file or dir
+
+otobo> cd /opt/otobo/Kernel/Modules && ln -b -s ~/devel/OTOBO/otobo/Kernel/Modules/Installer.pm
+
+## SEE ALSO
  
  * http://otobo.de
  * [RotherOSS Github repositories](https://github.com/RotherOSS/otobo)
