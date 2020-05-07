@@ -51,6 +51,10 @@ How would this work? SetPermissions.pl messes with the whole dir.
 otobo> cd /opt/otobo/Kernel/Modules && ln -b -s ~bernhard/devel/OTOBO/otobo/Kernel/Modules/Installer.pm
 otobo> symlinks -r /opt/otobo
 
+### Aliases
+
+alias otobo_restart="sudo systemctl restart apache2.service"
+
 ## SEE ALSO
  
  * http://otobo.de
