@@ -10,6 +10,16 @@ Here be only some ramblings.
 
 Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues should be used. Thanks for the nice Brotzeit by the way! https://github.com/RotherOSS/doc-otobo-installation/issues/1 is the first real issue. https://github.com/RotherOSS/otobo/issues/1 had been inadvertently added.
 
+### Tighten the requirements
+
+* Define the supported Linux and FreeBSD distributions
+* Find the minimal Perl version
+* Find the minimal MySQL version
+* Find the minimal Postgres version
+* Find the minimal Apache2 version
+* Document the found versions
+* Check the requirments
+
 ### Other ideas
 
 * Check the installation instructions
