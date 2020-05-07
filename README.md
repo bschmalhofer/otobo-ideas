@@ -47,7 +47,8 @@ How would this work? SetPermissions.pl messes with the whole dir.
 
 ### Linking an individual file or dir
 
-otobo> cd /opt/otobo/Kernel/Modules && ln -b -s ~/devel/OTOBO/otobo/Kernel/Modules/Installer.pm
+otobo> cd /opt/otobo/Kernel/Modules && ln -b -s ~bernhard/devel/OTOBO/otobo/Kernel/Modules/Installer.pm
+otobo> symlinks -r /opt/otobo
 
 ## SEE ALSO
  
