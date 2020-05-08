@@ -64,7 +64,8 @@ TODO
 
 ### Aliases
 
-alias otobo_restart="sudo systemctl restart apache2.service"
+* alias otobo_restart="sudo systemctl restart apache2.service"
+* alias otobo_mysql='mysql -u otobo otobo -p'
 
 ## SEE ALSO
  
