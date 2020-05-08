@@ -53,6 +53,13 @@ Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues s
 
 ### Working with a git checkout in a VM
 
+### Git tips
+
+#### Create a branch locally and push it to Github
+
+* git checkout -b issue-otobo9-query_cache_size
+* git push --set-upstream origin issue-otobo9-query_cache_size 
+
 TODO
 
 ### Aliases
