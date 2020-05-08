@@ -22,19 +22,15 @@ Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues s
 
 ### Other ideas
 
-* Check the installation instructions
-* cpanfile
-* PSGI
-* Starman
+* cpanfile generation from otobo.CheckModules.pl
+* run otobo.psgi with Starman
 * Docker image, see https://github.com/complemento/docker.otrs
 * Perl::Critic
 * Perl::Tidy
 * Devel::NYTProf
-* Intellij
 * remove Support for FastCGI
-* Features to add
-  * SQLite backend, might be useful for devel and testing
-  * Explicit support for MariaDB
+* add SQLite backend, might be useful for devel and testing
+* add a Selection for MariaDB in installation process, otherwise same as MySQL
 * Check the adaptions done in O-Fork
 
 ## Development process
@@ -53,14 +49,18 @@ Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues s
 
 ### Working with a git checkout in a VM
 
-### Git tips
+TODO
+
+### Working with IntelliJ IDEA
+
+TODO
+
+### Working with Git
 
 #### Create a branch locally and push it to Github
 
 * git checkout -b issue-otobo9-query_cache_size
 * git push --set-upstream origin issue-otobo9-query_cache_size 
-
-TODO
 
 ### Aliases
 
@@ -71,4 +71,3 @@ TODO
  
  * http://otobo.de
  * [RotherOSS Github repositories](https://github.com/RotherOSS/otobo)
-
