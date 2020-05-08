@@ -39,14 +39,21 @@ Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues s
 
 ## Development process
 
-### Link /opt/otobo to Git checkout
+### Working with a git checkout on the local machine
 
-How would this work? SetPermissions.pl messes with the whole dir.
+* https://github.com/bschmalhofer/otobo is a fork of https://github.com/RotherOSS/otobo
+* in a workspace as otobo: git clone https://github.com/bschmalhofer/otobo.git
+* Link /opt/otobo to the checked out repos
+* sudo /opt/otobo/bin/otobo.SetPermissions.pl
+* Add local user to the group www-data, this should give you write privs
+* Edit the code e.g. with IntelliJ IDEA
+* check in the changed files as otobo
+* push as otobo to Github
+* Create pull request in Github
 
-### Linking an individual file or dir
+### Working with a git checkout in a VM
 
-otobo> cd /opt/otobo/Kernel/Modules && ln -b -s ~bernhard/devel/OTOBO/otobo/Kernel/Modules/Installer.pm
-otobo> symlinks -r /opt/otobo
+TODO
 
 ### Aliases
 
