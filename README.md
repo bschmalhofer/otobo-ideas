@@ -31,10 +31,7 @@ Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues s
 * Perl::Tidy
 * Devel::NYTProf
 * Intellij
-* Features to remove
-  * Support for FastCGI
-  * Oracle Ticket-Database
-  * DB2 Ticket-Database
+* remove Support for FastCGI
 * Features to add
   * SQLite backend, might be useful for devel and testing
   * Explicit support for MariaDB
