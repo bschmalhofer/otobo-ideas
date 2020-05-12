@@ -20,14 +20,23 @@ Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues s
 * Document the found versions
 * Check the requirments
 
+### cpanfile generation from otobo.CheckModules.pl
+
+Added the option `--cpanfile`. All required modules are reported. 
+
+### run otobo.psgi with Starman
+
+bin/cgi-bin/app.psgi already exists and looks sensible.
+
+* Convert some of the wrapped scripts to a real PSGI app
+* Check the Apache-conf whether relevant features are missing.
+* Check support for Devel::NYTProf
+
 ### Other ideas
 
-* cpanfile generation from otobo.CheckModules.pl
-* run otobo.psgi with Starman
 * Docker image, see https://github.com/complemento/docker.otrs
 * Perl::Critic
 * Perl::Tidy
-* Devel::NYTProf
 * remove Support for FastCGI
 * add SQLite backend, might be useful for devel and testing
 * add a Selection for MariaDB in installation process, otherwise same as MySQL
