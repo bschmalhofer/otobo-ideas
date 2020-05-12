@@ -24,10 +24,12 @@ Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues s
 
 Added the option `--cpanfile`. All required modules are reported. 
 
-### run otobo.psgi with Starman
+### PSGI support
 
 bin/cgi-bin/app.psgi already exists and looks sensible.
 
+* Check usage of SCRIPT_NAME in OTOBO
+' Test debugging with `Plack::M:iddleware::CamelcadeDB`
 * Convert some of the wrapped scripts to a real PSGI app
 * Check the Apache-conf whether relevant features are missing.
 * Check support for Devel::NYTProf
