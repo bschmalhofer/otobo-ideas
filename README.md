@@ -39,7 +39,7 @@ bin/cgi-bin/app.psgi already exists and looks sensible.
 * Docker image, see https://github.com/complemento/docker.otrs
 * Perl::Critic
 * Perl::Tidy
-* remove Support for FastCGI
+* remove Support for CGI-PerlEx
 * add SQLite backend, might be useful for devel and testing
 * add a Selection for MariaDB in installation process, otherwise same as MySQL
 * Check the adaptions done in O-Fork
