@@ -77,6 +77,16 @@ TODO
 
 * vim ~/.git/info/exclude 
 
+### Sync with upstream repository
+
+See https://thoughtbot.com/blog/keeping-a-github-fork-updated
+
+* remote add rotheross https://github.com/RotherOSS/otobo
+* git fetch rotheross
+* git rebase rotheross/rel-10_0
+* git status
+* git push
+
 ### Aliases
 
 * alias otobo_start="sudo systemctl start apache2.service"
