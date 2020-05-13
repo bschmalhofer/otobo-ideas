@@ -68,16 +68,12 @@ TODO
 
 ### Working with Git
 
-#### Create a branch locally and push it to Github
-
-* git checkout -b issue-otobo9-query_cache_size
-* git push --set-upstream origin issue-otobo9-query_cache_size
 
 #### Exclude dirs and files without .gitignore
 
 * vim ~/.git/info/exclude 
 
-### Sync with upstream repository
+#### Sync with upstream repository
 
 See https://thoughtbot.com/blog/keeping-a-github-fork-updated
 
@@ -86,6 +82,11 @@ See https://thoughtbot.com/blog/keeping-a-github-fork-updated
 * git rebase rotheross/rel-10_0
 * git status
 * git push
+
+#### Create a branch locally and push it to Github
+
+* git checkout -b issue-otobo9-query_cache_size
+* git push --set-upstream origin issue-otobo9-query_cache_size
 
 ### Aliases
 
