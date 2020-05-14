@@ -18,7 +18,7 @@ Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues s
 * Find the minimal Postgres version
 * Find the minimal Apache2 version
 * Document the found versions
-* Check the requirments
+* Check the requirements
 
 ### cpanfile generation from otobo.CheckModules.pl
 
@@ -43,6 +43,7 @@ bin/cgi-bin/app.psgi already exists and looks sensible.
 * add SQLite backend, might be useful for devel and testing
 * add a Selection for MariaDB in installation process, otherwise same as MySQL
 * Check the adaptions done in O-Fork
+* use `XML::Compile::WSDL`for SOAP
 
 ## Development process
 
