@@ -24,6 +24,8 @@ Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues s
 
 Added the option `--cpanfile`. All required modules are reported. 
 
+TODO: Support for feature sets.
+
 ### PSGI support
 
 bin/cgi-bin/app.psgi already exists and looks sensible.
