@@ -28,13 +28,18 @@ TODO: Support for feature sets.
 
 ### PSGI support
 
-bin/cgi-bin/app.psgi already exists and looks sensible.
+PSGI application in bin/psgi-bin/otobo.psgi using CGI::Emulate::PSGI.
+rcp.pl as a direct PSGI application.
 
-* Check usage of SCRIPT_NAME in OTOBO
-' Test debugging with `Plack::M:iddleware::CamelcadeDB`
-* Convert some of the wrapped scripts to a real PSGI app
-* Check the Apache-conf whether relevant features are missing.
-* Check support for Devel::NYTProf
+* Test debugging with `Plack::M:iddleware::CamelcadeDB`
+* Test profiling with Devel::NYTProf5.30.2-buster
+* Provide a service script
+
+### Docker
+
+Based on the official Perl image 5.30.2-buster using Debian 10.
+cpanm is already installed.
+Generate cpanfile and install packages with the features mysql and psgi.
 
 ### Other ideas
 
