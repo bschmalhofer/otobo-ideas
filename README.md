@@ -40,6 +40,7 @@ rcp.pl as a direct PSGI application.
 Based on the official Perl image 5.30.2-buster using Debian 10.
 cpanm is already installed.
 Generate cpanfile and install packages with the features mysql and psgi.
+Sample commands are in the Dockerfile
 
 ### Other ideas
 
