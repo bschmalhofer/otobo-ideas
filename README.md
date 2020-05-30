@@ -22,9 +22,7 @@ Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues s
 
 ### cpanfile generation from otobo.CheckModules.pl
 
-Added the option `--cpanfile`. All required modules are reported. 
-
-TODO: Support for feature sets.
+Added the option `--cpanfile`. All required modules are reported. The generated cpanfile is also tracked in git and available during installation. Features are supported.
 
 ### PSGI support
 
@@ -33,24 +31,29 @@ rcp.pl as a direct PSGI application.
 
 * Test debugging with `Plack::M:iddleware::CamelcadeDB`
 * Test profiling with Devel::NYTProf5.30.2-buster
-* Provide a service script
+
+### Mojolicious
+
+Add the feature mojo to the cpanfile and add a sample application to `bin/mojo-bin`.
 
 ### Docker
 
 Based on the official Perl image 5.30.2-buster using Debian 10.
 cpanm is already installed.
-Generate cpanfile and install packages with the features mysql and psgi.
-Sample commands are in the Dockerfile
+Separate containers for web, db, and daemon.
+
+### Remove Support for Perl-Ex.
+
+Removed.
+
 
 ### Other ideas
 
-* Docker image, see https://github.com/complemento/docker.otrs
 * Perl::Critic
 * Perl::Tidy
-* remove Support for CGI-PerlEx
 * add SQLite backend, might be useful for devel and testing
 * add a Selection for MariaDB in installation process, otherwise same as MySQL
-* Check the adaptions done in O-Fork
+* Check the adaptions done in OFORK
 * use `XML::Compile::WSDL`for SOAP
 
 ## Development process
