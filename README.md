@@ -116,6 +116,13 @@ See https://thoughtbot.com/blog/keeping-a-github-fork-updated
 * alias otobo_restart="sudo systemctl restart apache2.service"
 * alias otobo_stop="sudo systemctl stop apache2.service"
 * alias otobo_mysql="mysql -u otobo otobo -p"
+* alias otobo_docker_login_web="docker exec -it otobo_web_1 bash"
+* alias otobo_docker_login_db="docker exec -it otobo_db_1 bash"
+* alias otobo_docker_login_cron="docker exec -it otobo_cron_1 bash"
+* alias otobo_ssh_vo85="ssh vo85@vo85.vo.otrs.ch -p 22222"
+* alias otobo_sshfs_vo85="sshfs -p 22222 vo85@vo85.vo.otrs.ch:/home/VirtualOTRS/vo85 fuse/"
+* alias otobo_cpanm="cpanm --with-feature=mysql --with-feature plack --with-feature=mojo --installdeps ."
+
 
 ## SEE ALSO
  
