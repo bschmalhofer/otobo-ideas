@@ -56,6 +56,7 @@ Removed.
 * add SQLite backend, might be useful for devel and testing
 * add a Selection for MariaDB in installation process, otherwise same as MySQL
 * use `XML::Compile::WSDL`for SOAP
+* `Seraeal`insted of `Storable`
 
 ### Discarded Ideas
 
