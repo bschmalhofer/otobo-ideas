@@ -46,15 +46,19 @@ Separate containers for web, db, and daemon.
 
 Removed.
 
-
-### Other ideas
+### Other Ideas
 
 * Perl::Critic
 * Perl::Tidy
 * add SQLite backend, might be useful for devel and testing
 * add a Selection for MariaDB in installation process, otherwise same as MySQL
-* Check the adaptions done in OFORK
 * use `XML::Compile::WSDL`for SOAP
+
+### Discarded Ideas
+
+* Check the adaptions done in OFORK
+
+Don't do this as the code for OFORK is note easily available.
 
 ## Development process
 
