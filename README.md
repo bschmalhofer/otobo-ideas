@@ -14,6 +14,9 @@ Bugzilla is so 2000s. I talked to Stefan about that and he decided that Issues s
 
 * Define the supported Linux and FreeBSD distributions
 * Find the minimal Perl version
+
+The minimal version of Perl is now `5.24.0`. Say hi to the optional `postderef_qq` feature and the automatically activated `postderef` feature.
+
 * Find the minimal MySQL version
 * Find the minimal Postgres version
 * Find the minimal Apache2 version
