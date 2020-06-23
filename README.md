@@ -97,7 +97,7 @@ TODO
 
 See https://thoughtbot.com/blog/keeping-a-github-fork-updated
 
-* remote add rotheross https://github.com/RotherOSS/otobo
+* git remote add rotheross https://github.com/RotherOSS/otobo
 * git fetch rotheross
 * git checkout rel-10_0
 * git rebase rotheross/rel-10_0
