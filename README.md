@@ -19,10 +19,6 @@ The minimal version of Perl is now `5.24.0`. Say hi to the optional `postderef_q
 * Document the found versions
 * Check the requirements
 
-### Mojolicious
-
-Add the feature mojo to the cpanfile and add a sample application to `bin/mojo-bin`.
-
 ### Docker
 
 Based on the official Perl image 5.30.2-buster using Debian 10.
@@ -61,6 +57,10 @@ Done. Even use Carton to some extent.
 * PSGI support
 
 Done, see otobo.psgi.
+
+* Mojolicious
+
+A sample is done, see /otobo/dbviewer. (Currently broken).
 
 ## Development process
 
