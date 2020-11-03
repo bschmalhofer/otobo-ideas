@@ -18,10 +18,6 @@ Here be only some ramblings.
 * Document the found versions
 * Check the requirements
 
-### Remove Support for Perl-Ex.
-
-Removed.
-
 ### Other Ideas
 
 * Perl::Critic
@@ -60,6 +56,8 @@ A sample is done, see /otobo/dbviewer. (Currently broken).
 Done, see https://hub.docker.com/repository/docker/rotheross/otobo.
 
 * The minimal version of Perl is now `5.24.0`. Say hi to the optional `postderef_qq` feature and the automatically activated `postderef` feature.
+
+* Support for Perl-Ex is removed
 
 ## Development process
 
