@@ -6,30 +6,25 @@ Here be only some ramblings.
 
 ## Ideas
 
-### Tighten the requirements
+### Open Ideas
 
-* Define the supported Linux and FreeBSD distributions
-* Find the minimal MySQL version
-* Find the minimal Postgres version
-* Document the found versions
-* Check the requirements
-
-### Other Ideas
-
+* Define, document and check the minimal supported  Linux and FreeBSD distributions
+* Define, document and check the minimal supported  MySQL version
+* Define, document and check the minimal supported  PostgreSQL version
 * Perl::Critic
 * Perl::Tidy
 * add SQLite backend, might be useful for devel and testing
-* add a Selection for MariaDB in installation process, otherwise same as MySQL
+* use DBD::MariaDB instead of DBD::mysql
 * use `XML::Compile::WSDL`for SOAP
-* `Seraeal`insted of `Storable`
+* use `Sereal`insted of `Storable`
 
-## Discarded Ideas
+### Discarded Ideas
 
 * Check the adaptions done in OFORK
 
 Don't do this as the code for OFORK is note easily available.
 
-## Implemented Ideas
+### Implemented Ideas
 
 * Use Github Issues for bugtracking
 
@@ -57,7 +52,7 @@ Done, see https://hub.docker.com/repository/docker/rotheross/otobo.
 
 * Support for Perl-Ex is removed
 
-## Development process
+## Notes regarding the development process
 
 ### Working with a git checkout on the local machine
 
@@ -78,29 +73,6 @@ TODO
 ### Working with IntelliJ IDEA
 
 TODO
-
-### Working with Git
-
-
-#### Exclude dirs and files without .gitignore
-
-* vim ~/.git/info/exclude 
-
-#### Sync with upstream repository
-
-See https://thoughtbot.com/blog/keeping-a-github-fork-updated
-
-* git remote add rotheross https://github.com/RotherOSS/otobo
-* git fetch rotheross
-* git checkout rel-10_0
-* git rebase rotheross/rel-10_0
-* git status
-* git push
-
-#### Create a branch locally and push it to Github
-
-* git checkout -b issue-otobo9-query_cache_size
-* git push --set-upstream origin issue-otobo9-query_cache_size
 
 ### Aliases
 
