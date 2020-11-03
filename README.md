@@ -72,6 +72,8 @@ Reasons why I thing that PSGI is the way to go.
 
 * Convenience. It's convienient the have sane interfaces, sane request and response objects.
 
+* CGI.pm is a beast. Plack::Request would most likely be a better choice.
+
 * Easy webserver integration: Perl webservers, Apache+mod_perl, FastCGI
 
 * Easily pluggable into existing infrastructure
