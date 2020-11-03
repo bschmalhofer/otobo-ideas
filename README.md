@@ -110,7 +110,9 @@ The real reason for getting rid of the scripts is to reduce the maintainance eff
 
 Mojolicious itself is not based on PSGI. However there are adaptors that make a Mojo app behave like a PSGI app.
 Before migrating to Mojolicious there should be an analysis which benefits of Mojo warrant a migration.
-The PSGI interface is more simple and consistent than CGI. Therefore a migration to Mojo is more simple from a PSGI app than from a CGI app.
+The PSGI interface is more simple and consistent than CGI. Therefore a migration to Mojo is more simple from a PSGI app than from a CGI app.I
+
+It would be interesting to see how OTRS uses Mojolicious.
 
 ### What about Kelp ?
 
