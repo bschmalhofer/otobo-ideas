@@ -19,10 +19,6 @@ The minimal version of Perl is now `5.24.0`. Say hi to the optional `postderef_q
 * Document the found versions
 * Check the requirements
 
-### cpanfile generation from otobo.CheckModules.pl
-
-Added the option `--cpanfile`. All required modules are reported. The generated cpanfile is also tracked in git and available during installation. Features are supported.
-
 ### PSGI support
 
 PSGI application in bin/psgi-bin/otobo.psgi using CGI::Emulate::PSGI.
@@ -65,6 +61,10 @@ Don't do this as the code for OFORK is note easily available.
 * Use Github Issues for bugtracking
 
 Done, see https://github.com/RotherOSS/otobo/issues/.
+
+* cpanfile generation from otobo.CheckModules.pl
+
+Done. Even use Carton to some extent.
 
 ## Development process
 
