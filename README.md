@@ -58,11 +58,17 @@ Removed.
 * use `XML::Compile::WSDL`for SOAP
 * `Seraeal`insted of `Storable`
 
-### Discarded Ideas
+## Discarded Ideas
 
 * Check the adaptions done in OFORK
 
 Don't do this as the code for OFORK is note easily available.
+
+## Implemented Ideas
+
+* Use Github Issues for bugtracking
+
+Done, see https://github.com/RotherOSS/otobo/issues/.
 
 ## Development process
 
