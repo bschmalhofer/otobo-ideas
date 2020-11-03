@@ -9,9 +9,8 @@ Here be only some ramblings.
 ### Tighten the requirements
 
 * Define the supported Linux and FreeBSD distributions
-* Find the minimal Perl version
 
-The minimal version of Perl is now `5.24.0`. Say hi to the optional `postderef_qq` feature and the automatically activated `postderef` feature.
+
 
 * Find the minimal MySQL version
 * Find the minimal Postgres version
@@ -59,6 +58,8 @@ A sample is done, see /otobo/dbviewer. (Currently broken).
 * Docker
 
 Done, see https://hub.docker.com/repository/docker/rotheross/otobo.
+
+* The minimal version of Perl is now `5.24.0`. Say hi to the optional `postderef_qq` feature and the automatically activated `postderef` feature.
 
 ## Development process
 
