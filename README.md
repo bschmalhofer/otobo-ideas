@@ -52,6 +52,18 @@ Done, see https://hub.docker.com/repository/docker/rotheross/otobo.
 
 * Support for Perl-Ex is removed
 
+## Ramblings on PSGI
+
+### Why PSGI ?
+
+### How deep should PSGI support be ?
+
+### Why no tradiotional CGI scripts ?
+
+### What about Mojolicious ?
+
+### What about Kelp ?
+
 ## Notes regarding the development process
 
 ### Working with a git checkout on the local machine
