@@ -82,6 +82,8 @@ Reasons why I thing that PSGI is the way to go.
 
 * Plack::Test is nice too
 
+* Finally there is streaming
+
 ### How deep should PSGI support be ?
 
 That's a real question. With CGI::Emulate::PSGI, one can take the old application, wrap it and conform to the
