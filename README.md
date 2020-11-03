@@ -88,20 +88,32 @@ TODO
 
 ### Aliases
 
-* alias otobo_start="sudo systemctl start apache2.service"
-* alias otobo_status="sudo systemctl status apache2.service"
-* alias otobo_restart="sudo systemctl restart apache2.service"
-* alias otobo_stop="sudo systemctl stop apache2.service"
-* alias otobo_mysql="mysql -u otobo otobo -p"
-* alias otobo_docker_login_web="docker exec -it otobo_web_1 bash"
-* alias otobo_docker_login_db="docker exec -it otobo_db_1 bash"
-* alias otobo_docker_login_cron="docker exec -it otobo_cron_1 bash"
-* alias otobo_ssh_vo85="ssh vo85@vo85.vo.otrs.ch -p 22222"
-* alias otobo_sshfs_vo85="sshfs -p 22222 vo85@vo85.vo.otrs.ch:/home/VirtualOTRS/vo85 fuse/"
-* alias otobo_cpanm="cpanm --with-feature=mysql --with-feature plack --with-feature=mojo --installdeps ."
-
+```
+alias otobo_apache_start="sudo systemctl start apache2.service"
+alias otobo_apache_status="sudo systemctl status apache2.service"
+alias otobo_apache_restart="sudo systemctl restart apache2.service"
+alias otobo_apache_stop="sudo systemctl stop apache2.service"
+alias otobo_mysql="mysql -u otobo otobo -p"
+alias otobo_docker_login_web="docker exec -it otobo_web_1 bash"
+alias otobo_docker_login_db="docker exec -it otobo_db_1 bash"
+alias otobo_docker_login_daemon="docker exec -it otobo_daemon_1 bash"
+alias otobo_docker_login_redis="docker exec -it otobo_redis_1 sh"
+alias otobo_docker_login_nginx="docker exec -it otobo_nginx_1 bash"
+alias otobo_docker_login_elastic="docker exec -it otobo_elastic_1 bash"
+alias otobo_docker_update_local-rel-10_0="docker run -it --rm --volume otobo_opt_otobo:/opt/otobo otobo:local-rel-10_0 update"
+alias otobo_docker_update_local-rel-10_1="docker run -it --rm --volume otobo_opt_otobo:/opt/otobo otobo:local-rel-10_1 update"
+alias otobo_docker_update_10_0="docker run -it --rm --volume otobo_opt_otobo:/opt/otobo rotheross/otobo:devel update"
+alias otobo_docker_update_10_1="docker run -it --rm --volume otobo_opt_otobo:/opt/otobo rotheross/otobo:devel-10_1 update"
+alias otobo_docker_quick_setup="docker exec -t otobo_web_1 bash -c \"date ; hostname ; rm -f Kernel/Config/Files/ZZZAAuto.pm ; bin/docker/quick_setup.pl --db-password otobo_root\""
+alias otobo_docker_test_suite="docker stop otobo_daemon_1 ; docker exec -t otobo_web_1 bash -c \" date ; hostname ; bin/docker/run_test_suite.sh\" ; docker start otobo_daemon_1"
+alias otobo_docker_test_progress="docker exec -t otobo_web_1 bash -c \" date ; ls -l prove_*.out ; wc -l prove_*.out ; grep '^not ok ' prove_*.out | grep -v -c '# TODO'\""
+alias otobo_docker_backup="docker run -it --rm --volume otobo_opt_otobo:/opt/otobo --volume otobo_backup:/otobo_backup --network otobo_default otobo:local scripts/backup.pl -d /otobo_backup"
+alias otobo_docker_restore="docker run -it --rm --volume otobo_opt_otobo:/opt/otobo --volume otobo_backup:/otobo_backup --network otobo_default otobo:local scripts/restore.pl -d /otobo_backup"
+alias otobo_prove="prove -I . -I Kernel/cpan-lib -I Custom --verbose -r"
+alias otobo_perl="perl -I . -I Kernel/cpan-lib -I Custom"
+```
 
 ## SEE ALSO
  
- * http://otobo.de
+ * http://otobo.org
  * [RotherOSS Github repositories](https://github.com/RotherOSS/otobo)
