@@ -19,12 +19,6 @@ The minimal version of Perl is now `5.24.0`. Say hi to the optional `postderef_q
 * Document the found versions
 * Check the requirements
 
-### Docker
-
-Based on the official Perl image 5.30.2-buster using Debian 10.
-cpanm is already installed.
-Separate containers for web, db, and daemon.
-
 ### Remove Support for Perl-Ex.
 
 Removed.
@@ -61,6 +55,10 @@ Done, see otobo.psgi.
 * Mojolicious
 
 A sample is done, see /otobo/dbviewer. (Currently broken).
+
+* Docker
+
+Done, see https://hub.docker.com/repository/docker/rotheross/otobo.
 
 ## Development process
 
