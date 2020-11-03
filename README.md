@@ -68,7 +68,7 @@ Reasons why I thing that PSGI is the way to go.
 
 * Configuration is more simple. _apache2-perl-startup.pl_ is no longer needed.
 
-* Current development is based on PSGI. See the first bullet point.
+* Current development on the Perl community is often based on PSGI. See the first bullet point.
 
 * Convenience. It's convienient the have sane interfaces, sane request and response objects.
 
@@ -79,6 +79,8 @@ Reasons why I thing that PSGI is the way to go.
 * Easy plugging of other applications.
 
 * In future: more simple support for webservices, SOAP, REST 
+
+* Plack::Test is nice too
 
 ### How deep should PSGI support be ?
 
