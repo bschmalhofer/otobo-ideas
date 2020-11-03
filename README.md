@@ -19,14 +19,6 @@ The minimal version of Perl is now `5.24.0`. Say hi to the optional `postderef_q
 * Document the found versions
 * Check the requirements
 
-### PSGI support
-
-PSGI application in bin/psgi-bin/otobo.psgi using CGI::Emulate::PSGI.
-rcp.pl as a direct PSGI application.
-
-* Test debugging with `Plack::M:iddleware::CamelcadeDB`
-* Test profiling with Devel::NYTProf5.30.2-buster
-
 ### Mojolicious
 
 Add the feature mojo to the cpanfile and add a sample application to `bin/mojo-bin`.
@@ -65,6 +57,10 @@ Done, see https://github.com/RotherOSS/otobo/issues/.
 * cpanfile generation from otobo.CheckModules.pl
 
 Done. Even use Carton to some extent.
+
+* PSGI support
+
+Done, see otobo.psgi.
 
 ## Development process
 
