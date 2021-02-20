@@ -23,13 +23,7 @@ Some ideas I'm tinkering with.
   * use N-tier translations, e.g. Portuguese falling back to Brazilian Portugues falling back to English
   * A Louisiana Crèole translation
 
-### Discarded Ideas
-
-* Check the adaptions done in OFORK
-
-Don't do this as the code for OFORK is note easily available.
-
-### Implemented Ideas
+### Discarded and Implemented Ideas
 
 * Use Github Issues for bugtracking
 
