@@ -27,7 +27,7 @@ Some ideas I'm tinkering with.
 
 * Use Github Issues for bugtracking
 
-Done, see https://github.com/RotherOSS/otobo/issues/.
+  Done, see https://github.com/RotherOSS/otobo/issues/.
 
 * cpanfile generation from otobo.CheckModules.pl
 
