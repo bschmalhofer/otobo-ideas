@@ -10,15 +10,18 @@ Here be only some ramblings.
 
 Some ideas I'm tinkering with.
 
-* add SQLite backend, might be useful for devel and testing
-* use DBD::MariaDB instead of DBD::mysql
-* use `XML::Compile::WSDL`for SOAP
-* use `Sereal`insted of `Storable`
-* use `Email::Sender`
-* use `Log::Log4perl`
-* use N-tier translations, e.g. Portuguese falling back to Brazilian Portugues falling back to English
-* A Louisiana Crèole translation
-* Eliminate Apache
+* Database
+  * add SQLite backend, might be useful for devel and testing
+  * use DBD::MariaDB instead of DBD::mysql
+* Implementation
+  * use `XML::Compile::WSDL`for SOAP
+  * use `Sereal`insted of `Storable`
+  * use `Email::Sender`
+  * use `Log::Log4perl`
+  * Eliminate Apache altogether
+* Translation
+  * use N-tier translations, e.g. Portuguese falling back to Brazilian Portugues falling back to English
+  * A Louisiana Crèole translation
 
 ### Discarded Ideas
 
