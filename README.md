@@ -19,6 +19,11 @@ Some ideas I'm tinkering with.
   * use `Email::Sender`
   * use `Log::Log4perl`
   * Eliminate Apache altogether
+* Testing
+  * currently about 40 Selenium tests are still failing
+  * maybe use Plack::Test
+* Continous Integration
+  * pretty much still TODO
 * Translation
   * use N-tier translations, e.g. Portuguese falling back to Brazilian Portugues falling back to English
   * A Louisiana Crèole translation
@@ -43,7 +48,7 @@ Some ideas I'm tinkering with.
 
 * Docker
 
-Done, see https://hub.docker.com/repository/docker/rotheross/otobo.
+  Done, see https://hub.docker.com/repository/docker/rotheross/otobo.
 
 * The minimal version of Perl is now `5.24.0`. 
  
@@ -64,6 +69,8 @@ Done, see https://hub.docker.com/repository/docker/rotheross/otobo.
 * Perl::Critic, part of the CodePolicy
  
 * Perl::Tidy, part of the CodePolicy
+
+* Test scripts can use `Test2::V0` and `Kernel::System::UnitTest` side by side
 
 ## Ramblings on PSGI
 
