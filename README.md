@@ -31,25 +31,27 @@ Done, see https://github.com/RotherOSS/otobo/issues/.
 
 * cpanfile generation from otobo.CheckModules.pl
 
-Done. Even use Carton to some extent.
+  Done. Even use Carton to some extent.
 
 * PSGI support
 
-Done, see otobo.psgi.
+  Done, see otobo.psgi.
 
 * Mojolicious
 
-A sample had been done in /otobo/dbviewer. Removed in OTOBO 10.0.9.
+  A sample had been done in /otobo/dbviewer. Removed in OTOBO 10.0.9.
 
 * Docker
 
 Done, see https://hub.docker.com/repository/docker/rotheross/otobo.
 
-* The minimal version of Perl is now `5.24.0`. Say hi to the optional `postderef_qq` feature and the automatically activated `postderef` feature.
+* The minimal version of Perl is now `5.24.0`. 
+ 
+  Say hi to the optional `postderef_qq` feature and the automatically activated `postderef` feature.
 
 * Minimal Apache Version defined as 2.4.
 
-Hopefully gone altogether soon.
+  Hopefully gone altogether soon.
 
 * Support for Perl-Ex is removed
 
