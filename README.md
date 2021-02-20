@@ -18,6 +18,7 @@ Some ideas I'm tinkering with.
 * use `Log::Log4perl`
 * use N-tier translations, e.g. Portuguese falling back to Brazilian Portugues falling back to English
 * A Louisiana Crèole translation
+* Eliminate Apache
 
 ### Discarded Ideas
 
@@ -51,16 +52,18 @@ Done, see https://hub.docker.com/repository/docker/rotheross/otobo.
 
 * Minimal Apache Version defined as 2.4.
 
+Hopefully gone altogether soon.
+
 * Support for Perl-Ex is removed
 
 * Define, document and check the minimal supported  Linux and FreeBSD distributions
-* 
+
 * Define, document and check the minimal supported  MySQL version
-* 
+  
 * Define, document and check the minimal supported  PostgreSQL version
-* 
+ 
 * Perl::Critic, part of the CodePolicy
-* 
+ 
 * Perl::Tidy, part of the CodePolicy
 
 ## Ramblings on PSGI
