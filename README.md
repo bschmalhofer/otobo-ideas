@@ -1,4 +1,4 @@
-# otobo-ideas: Just some notes about [OTOBO](https://otobo.de/en/community/)
+# Just some notes about [OTOBO](https://otobo.de/en/community/)
 
 OTOBO is an open source ticketing system which was derived from ((OTRS)) Community Edition.
 
@@ -159,6 +159,16 @@ alias otobo_docker_backup="docker run -it --rm --volume otobo_opt_otobo:/opt/oto
 alias otobo_docker_restore="docker run -it --rm --volume otobo_opt_otobo:/opt/otobo --volume otobo_backup:/otobo_backup --network otobo_default otobo:local scripts/restore.pl -d /otobo_backup"
 alias otobo_prove="prove -I . -I Kernel/cpan-lib -I Custom --verbose -r"
 alias otobo_perl="perl -I . -I Kernel/cpan-lib -I Custom"
+```
+### Git prompt
+
+```
+if [ "$color_prompt" = yes ]; then
+    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}bes:\[\033[01;34m\]\w\[\033[00m\] \[\033[01;32m\]$(__git_ps1 "(%s)")\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
 ```
 
 ### Shell helpers
