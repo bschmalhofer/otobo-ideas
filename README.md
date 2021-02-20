@@ -67,59 +67,29 @@ Done, see https://hub.docker.com/repository/docker/rotheross/otobo.
 
 ## Ramblings on PSGI
 
-An interesting read is https://metacpan.org/pod/distribution/PSGI/PSGI/FAQ.pod
+PSGI is now officially supported. But of course things can always be improved.
 
-### Why PSGI ?
+### PSGI support improvements
 
-Reasons why I thing that PSGI is the way to go.
+* Make better use of middlewares
 
-* It's more modern.
+* Saner support for webservices like SOAP, REST 
 
-* Better abstraction. No need to get into the details of Apache+mod_perl.
+* Plack::Test
 
-* Middlewares can be used to reduce the complexity.
+* Streaming, chat server
 
-* Configuration is more simple. _apache2-perl-startup.pl_ is no longer needed.
+### PSGI stumbling blocks
 
-* Current development on the Perl community is often based on PSGI. See the first bullet point.
-
-* Convenience. It's convienient the have sane interfaces, sane request and response objects.
-
-* CGI.pm is a beast. Plack::Request would most likely be a better choice.
-
-* Easy webserver integration: Perl webservers, Apache+mod_perl, FastCGI
-
-* Easily pluggable into existing infrastructure
-
-* Easy plugging of other applications.
-
-* In future: more simple support for webservices, SOAP, REST 
-
-* Plack::Test is nice too
-
-* Finally there is streaming
-
-### How deep should PSGI support be ?
-
-That's a real question. With CGI::Emulate::PSGI, one can take the old application, wrap it and conform to the
-PSGI interface. I rather go for a real migration, where the intended interfaces are used. The `%Env`has for the input, and
-an array ref as the response.
-
-### What are the stumbling block?
-
-These points are specific for a deep migration.
-
-- The `%ENV`no longer has the accostumed data. The CGI-Object in `Kernel::System::Web::Request` must be used for that.
+- `%ENV`no longer has the accustomed data. The Request-Object in `Kernel::System::Web::Request` must be used for that.
 - Encoding issues might be lurking. But the gut feeling is that things are more simple with PSGI.
 - Care must be taken that HTTP headers are not set in the content. `Kernel::System::Web::Response` must be used.
-- More dependencies on CPAN modules.
+- There are dependencies on CPAN modules.
+- Printing to STDOUT is no longer a thing.
 
-### Why no traditional CGI scripts ?
+### What CGI scripts ?
 
-The scripts in _bin/cgi-bin_ are no longer needed because `PerlResponseHandler Plack::Handler::Apache2` can be used for making _otobo.psgi_ available in Apache.
-There might be a reason to still provide the scripts. In this case `Plack::Handler::CGI` can be used. 
-
-The real reason for getting rid of the scripts is to reduce the maintainance effort. Having two ways of generating content increases the burden on testing. The code can be simplified a little bit when only PSGI must be converted.
+The scripts in _bin/cgi-bin_ are now wrapping otobo.psgi.
 
 ### What about Mojolicious ?
 
@@ -133,7 +103,7 @@ It would be interesting to see how OTRS uses Mojolicious.
 
 Kelp is a thin wrapper around Plack. This makes it IMHO an interesting option for OTOBO.
 
-### Solution
+### Current status
 
 Deep support for PSGI in the 10.1 branch
 
@@ -194,3 +164,4 @@ alias otobo_perl="perl -I . -I Kernel/cpan-lib -I Custom"
  * http://otobo.org
  * [RotherOSS Github repositories](https://github.com/RotherOSS/otobo)
  * https://github.com/RotherOSS/otobo/issues
+ * https://metacpan.org/pod/distribution/PSGI/PSGI/FAQ.pod
