@@ -1,4 +1,4 @@
-# otobo-ideas: Just some notes OTOBO
+# otobo-ideas: Just some notes about [OTOBO](https://otobo.de/en/community/)
 
 OTOBO is an open source ticketing system which was derived from ((OTRS)) Community Edition.
 
