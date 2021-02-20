@@ -175,6 +175,11 @@ fi
 
 * https://github.com/rupa/z
 
+### Automatic Editing
+
+```
+find scripts/test/ -name '*.t' | xargs -L 1 perl -0777 -pi -e 's/\n\n\n\$Self->DoneTesting\(\);/\n\n\$Self->DoneTesting();/'
+```
 
 ## SEE ALSO
  
