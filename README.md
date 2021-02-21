@@ -27,6 +27,10 @@ Some ideas I'm tinkering with.
 * Translation
   * use N-tier translations, e.g. Portuguese falling back to Brazilian Portugues falling back to English
   * A Louisiana Crèole translation
+* Web related
+  * Mojolicious for the Generic Interface
+  * Check whether OpenGraph is supported
+  * facicon 
 
 ### Discarded and Implemented Ideas
 
