@@ -32,7 +32,7 @@ Some ideas I'm tinkering with.
   * Check whether OpenGraph is supported
   * facicon 
 
-### Discarded and Implemented Ideas
+### Implemented, or Discarded, Ideas
 
 * Use Github Issues for bugtracking
 
