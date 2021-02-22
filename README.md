@@ -98,7 +98,7 @@ PSGI is now officially supported. But of course things can always be improved.
 - There are dependencies on CPAN modules.
 - Printing to STDOUT is no longer a thing.
 
-### What CGI scripts ?
+### What about CGI scripts ?
 
 The scripts in _bin/cgi-bin_ are now wrapping otobo.psgi.
 
