@@ -18,7 +18,6 @@ Some ideas I'm tinkering with.
   * use `Sereal`insted of `Storable`
   * use `Email::Sender`
   * use `Log::Log4perl`
-  * Eliminate Apache altogether
 * Testing
   * currently about 40 Selenium tests are still failing
   * maybe use Plack::Test
@@ -31,6 +30,7 @@ Some ideas I'm tinkering with.
   * Mojolicious for the Generic Interface
   * Check whether OpenGraph is supported
   * facicon 
+  * Eliminate Apache altogether
 
 ### Implemented, or Discarded, Ideas
 
