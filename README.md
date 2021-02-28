@@ -18,6 +18,7 @@ Some ideas I'm tinkering with.
   * use `Sereal`insted of `Storable`
   * use `Email::Sender`
   * use `Log::Log4perl`
+  * use `Capture::Tiny`
 * Testing
   * currently about 40 Selenium tests are still failing
   * maybe use Plack::Test
