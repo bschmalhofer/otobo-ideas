@@ -32,6 +32,8 @@ Some ideas I'm tinkering with.
   * Check whether OpenGraph is supported
   * facicon 
   * Eliminate Apache altogether
+* Security
+  * Find a maintained source of CPAN security advisories, like https://github.com/vti/cpan-security-advisory  
 
 ### Implemented, or Discarded, Ideas
 
