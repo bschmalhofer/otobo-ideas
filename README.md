@@ -28,7 +28,7 @@ Some ideas I'm tinkering with.
   * use N-tier translations, e.g. Portuguese falling back to Brazilian Portugues falling back to English
   * A Louisiana Crèole translation
 * Web related
-  * Mojolicious for the Generic Interface
+  * Mojolicious or Raisin, or .., for the Generic Interface
   * Check whether OpenGraph is supported
   * facicon 
   * Eliminate Apache altogether
