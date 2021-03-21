@@ -1,8 +1,8 @@
 # Just some notes about [OTOBO](https://otobo.de/en/community/)
 
-OTOBO is an open source ticketing system which was derived from ((OTRS)) Community Edition.
+OTOBO is an open source ticketing system that was derived from ((OTRS)) Community Edition.
 
-Here be only some ramblings.
+Here are some ramblings.
 
 ## Ideas
 
@@ -20,7 +20,7 @@ Some ideas I'm tinkering with.
   * use `Log::Log4perl`
   * use `Capture::Tiny`
 * Testing
-  * currently about 40 Selenium tests are still failing
+  * currently about 35 Selenium tests are still failing
   * maybe use Plack::Test
 * Continous Integration
   * pretty much still TODO
@@ -79,7 +79,7 @@ Some ideas I'm tinkering with.
 
 * Test scripts can use `Test2::V0` and `Kernel::System::UnitTest` side by side
 
-## Ramblings on PSGI
+## PSGI
 
 PSGI is now officially supported. But of course things can always be improved.
 
@@ -120,6 +120,41 @@ Kelp is a thin wrapper around Plack. This makes it IMHO an interesting option fo
 ### Current status
 
 Deep support for PSGI in the 10.1 branch
+
+## Refreshing modules
+
+One feature of OTOBO is that in a persistent Perl environment modules on disk might change and therefore must be reloaded.
+The use cases are:
+
+- An OTOBO package overwrites an existing module
+
+- An OTOBO package creates a new version of a module in the _Custom_ folder
+
+- A config cache was updated in _Kernel/Config/Files
+  - ZZZAAuto.pm
+  - ZZZACL.pm
+  - ZZZProcessManagement.xml
+  - possibly others
+
+### Current implementation for using OTOBO 10.0.9 under Apache
+
+It is required that mod_perl is activated and that Apache2::Reload is installed. The Apache config has these settings:
+
+    # Reload Perl modules when changed on disk
+    PerlModule Apache2::Reload
+    PerlInitHandler Apache2::Reload
+    
+This means that for every request the modification time all modules in `%INC` are checked. Modified modules are reloaded.
+
+`Kernel::System::ObjectManager::ObjectsDiscard` has the option `ForcePackageReload` which removes the module from `%INC`. However it looks like this option is almost never used.
+
+`Kernel::System::MigrateFromOTRS::Base::RebuildConfig()` and `Kernel::System::Daemon::DaemonModules::SchedulerTaskWorker::Run` remove _ZZZAAuto.pm_ and _ZZZAuto.pm_ from `%INC` in order to force are reload of the config cache.
+
+`Kernel::System::SysConfig::Base::OTOBOCommunity::UserConfigurationDeploySync` also deletes from `%INC`. Not sure whether this is still relevant.
+
+`Kernel::System::ZnunyHelper::RebuildConfig` deletes from `%INC`.
+
+
 
 ## Notes regarding the development process
 
