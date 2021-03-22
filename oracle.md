@@ -37,18 +37,33 @@ Tell the instant client about the running database:
         (CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCLCDB.localdomain)))
     ORCLPDB1=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=32769))
         (CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCLPDB1.localdomain)))
+        
+Oracle 12 has a feature called multitenant container database (CDB). Whatever this is,
+care must be taken to log on to ORCLPDB1 and not to ORCLCDB. While we are at it,
+let's create schemas for Znuny and OTOBO.
 
-    bernhard@bernhard-HP-250-G6-Notebook-PC:~$ sqlplus sys/Oradoc_db1@ORCLCDB as sysdba
+    bes:/opt/otrs/scripts/database $ sqlplus sys/Oradoc_db1@ORCLPDB1 as sysdba
 
-    SQL*Plus: Release 21.0.0.0.0 - Production on Mon Mar 22 15:54:04 2021
+    SQL*Plus: Release 21.0.0.0.0 - Production on Mon Mar 22 17:15:25 2021
     Version 21.1.0.0.0
 
     Copyright (c) 1982, 2020, Oracle.  All rights reserved.
 
-    Last Successful login time: Mon Mar 22 2021 15:53:40 +01:00
+    Last Successful login time: Mon Mar 22 2021 17:05:42 +01:00
 
     Connected to:
     Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+
+    SQL> create user otrs identified by otrs
+    2  ;
+
+    User created.
+
+    SQL> create user znuny identified by znuny   
+    2  ;
+
+    User created.
+
 
 # DBD::Oracle
 
