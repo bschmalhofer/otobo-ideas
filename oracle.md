@@ -31,49 +31,29 @@ Follow instructions from https://www.rosehosting.com/blog/how-to-install-rpm-pac
     Version 21.1.0.0.0
     
 Tell the instant client about the running database:
- 
-bernhard@bernhard-HP-250-G6-Notebook-PC:~$ cat $TNS_ADMIN/tnsnames.ora
-ORCLCDB=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=32769))
-    (CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCLCDB.localdomain)))
-ORCLPDB1=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=32769))
-    (CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCLPDB1.localdomain)))
 
-bernhard@bernhard-HP-250-G6-Notebook-PC:~$ sqlplus sys/Oradoc_db1@ORCLCDB as sysdba
+    bernhard@bernhard-HP-250-G6-Notebook-PC:~$ cat $TNS_ADMIN/tnsnames.ora
+    ORCLCDB=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=32769))
+        (CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCLCDB.localdomain)))
+    ORCLPDB1=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=32769))
+        (CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCLPDB1.localdomain)))
 
-SQL*Plus: Release 21.0.0.0.0 - Production on Mon Mar 22 15:54:04 2021
-Version 21.1.0.0.0
+    bernhard@bernhard-HP-250-G6-Notebook-PC:~$ sqlplus sys/Oradoc_db1@ORCLCDB as sysdba
 
-Copyright (c) 1982, 2020, Oracle.  All rights reserved.
+    SQL*Plus: Release 21.0.0.0.0 - Production on Mon Mar 22 15:54:04 2021
+    Version 21.1.0.0.0
 
-Last Successful login time: Mon Mar 22 2021 15:53:40 +01:00
+    Copyright (c) 1982, 2020, Oracle.  All rights reserved.
 
-Connected to:
-Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+    Last Successful login time: Mon Mar 22 2021 15:53:40 +01:00
 
-bernhard@bernhard-HP-250-G6-Notebook-PC:~$ cat $TNS_ADMIN/tnsnames.ora
-ORCLCDB=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=32769))
-    (CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCLCDB.localdomain)))
-ORCLPDB1=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=32769))
-    (CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCLPDB1.localdomain)))
-
-bernhard@bernhard-HP-250-G6-Notebook-PC:~$ sqlplus sys/Oradoc_db1@ORCLCDB as sysdba
-
-SQL*Plus: Release 21.0.0.0.0 - Production on Mon Mar 22 15:54:04 2021
-Version 21.1.0.0.0
-
-Copyright (c) 1982, 2020, Oracle.  All rights reserved.
-
-Last Successful login time: Mon Mar 22 2021 15:53:40 +01:00
-
-Connected to:
-Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+    Connected to:
+    Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
 
 # DBD::Oracle
 
-    sudo cpanm DBD::Oracle
+    sudo     cpanm DBD    ::Ora    cle
 
-# Install OTRS 6 ((Community Edition))
+# InstOTRS 6 ((Community Edition))
 
 https://doc.znuny.org/doc/manual/admin/6.0/en/html/manual-installation-of-otrs.html
-
-
