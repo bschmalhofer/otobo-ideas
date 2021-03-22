@@ -12,6 +12,7 @@ Some ideas I'm tinkering with.
 
 * Database
   * add SQLite backend, might be useful for devel and testing
+  * add H2 backend, interesting because of the compatability modes
   * use DBD::MariaDB instead of DBD::mysql
 * Implementation
   * use `XML::Compile::WSDL`for SOAP
