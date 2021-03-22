@@ -1,6 +1,4 @@
-Here are some notes regarding Oracle.
-
-https://github.com/RotherOSS/otobo/issues/873
+Here are some notes regarding Oracle. The motivation is https://github.com/RotherOSS/otobo/issues/873.
 
 Starting with no Oracle at all.
 
@@ -15,7 +13,11 @@ Starting with no Oracle at all.
 
 # Client
 
-Get the instantclient from 21.1.0.0.0. oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm and oracle-instantclient-sqlplus-21.1.0.0.0-1.x86_64.rpm.
+Get the instantclient from 21.1.0.0.0. 
+- oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm
+- oracle-instantclient-sqlplus-21.1.0.0.0-1.x86_64.rpm.
+- oracle-instantclient-devel-21.1.0.0.0-1.x86_64.rpm
+
 Follow instructions from https://www.rosehosting.com/blog/how-to-install-rpm-packages-on-ubuntu/.
 
     bernhard@bernhard-HP-250-G6-Notebook-PC:~$ cat /etc/profile.d/oracle.sh 
@@ -65,6 +67,10 @@ Last Successful login time: Mon Mar 22 2021 15:53:40 +01:00
 
 Connected to:
 Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+
+# DBD::Oracle
+
+    sudo cpanm DBD::Oracle
 
 # Install OTRS 6 ((Community Edition))
 
