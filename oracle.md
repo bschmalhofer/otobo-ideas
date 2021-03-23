@@ -63,8 +63,7 @@ let's create schemas for _otrs_ and _otobo_.
 
     User created.
 
-    SQL> create user znuny identified by znuny   
-    2  ;
+    SQL> create user otobo identified by otobo;
 
     User created.
 
