@@ -78,8 +78,8 @@ Set up users and schemas _otrs_ and _otobo_:
     alter user otobo quota unlimited on users;
  
     GRANT CREATE SESSION to otrs;
-    GRANT CREATE TABLE to otobo;
-    GRANT CREATE sequence TO otobo;
+    GRANT CREATE TABLE to otrs;
+    GRANT CREATE sequence TO otrs;
     GRANT CREATE TRIGGER TO otrs; 
     alter user otrs quota unlimited on users;
    
