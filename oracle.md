@@ -1,6 +1,6 @@
 Here are some notes regarding Oracle. The motivation is https://github.com/RotherOSS/otobo/issues/873.
 
-Starting with no Oracle at all.
+Starting with no Oracle at all under Ubuntu 20.04.
 
 # Server
 
@@ -67,11 +67,50 @@ let's create schemas for _otrs_ and _otobo_.
 
     User created.
 
-
+Also: 
+  - GRANT CONNECT to otobo;
+  - GRANT CREATE SESSION to otobo;
+  - GRANT CREATE TABLE to otobo;
+  - GRANT CREATE sequence TO otobo;
+  - GRANT CREATE TRIGGER TO otobo;
+  - alter user otobo quota unlimited on users;
+ 
+  - GRANT CONNECT to otrs;
+  - GRANT CREATE SESSION to otrs;
+  - GRANT CREATE TABLE to otobo;
+  - GRANT CREATE sequence TO otobo;
+  - GRANT CREATE TRIGGER TO otrs; 
+  - alter user otrs quota unlimited on users;
+   
 # DBD::Oracle
 
-    sudo     cpanm DBD    ::Ora    cle
+    sudo cpanm DBD::Oracle
+    
+# Install OTRS 6 ((Community Edition))
 
-# InstOTRS 6 ((Community Edition))
+Follow instructions in https://doc.znuny.org/doc/manual/admin/6.0/en/html/manual-installation-of-otrs.html
 
-https://doc.znuny.org/doc/manual/admin/6.0/en/html/manual-installation-of-otrs.html
+## Apache Config
+
+Before running installer.pl, add directives in __<Location /otrs>__ in _/etc/apache2/sites-enabled/zzz_otrs.conf_
+
+    PerlSetEnv ORACLE_HOME /usr/lib/oracle/21/client64
+    PerlSetEnv TNS_ADMIN /usr/lib/oracle/21/client64/network/admin
+
+Restart Apache widt `sudo service apache2 restart`    
+
+Chosse Oracle and supply these settings:
+
+
+## Find the correct service name
+
+`docker exec -it oracle_otobo_1 bash ` and then `lsnrctl services` look for the **pdb1** entry.
+
+## Connection settings
+
+    Host: 127.0.0.1
+    SID: orclpdb1.localdomain
+    Port: 1521
+    Benutzer: otrs
+    Passwort: otrs
+
