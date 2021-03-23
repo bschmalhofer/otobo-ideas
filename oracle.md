@@ -13,7 +13,8 @@ Starting with no Oracle at all under Ubuntu 20.04.
   - ` docker run -d -it --name oracle_otobo_1  -p 1521:1521 -p 5500:5500 store/oracle/database-enterprise:12.2.0.1-slim` 
     - downloading about 1.5 G.
     - keeping the ports used in the image
-    - do not bother to keep setup and data in Oracle persistent 
+    - do not bother to keep setup and data in Oracle persistent
+    - takes a bit to start up, check health with `docker ps`
 
 # Client
 
@@ -58,8 +59,7 @@ let's create schemas for _otrs_ and _otobo_.
     Connected to:
     Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
 
-    SQL> create user otrs identified by otrs
-    2  ;
+    SQL> create user otrs identified by otrs;
 
     User created.
 
@@ -67,20 +67,21 @@ let's create schemas for _otrs_ and _otobo_.
 
     User created.
 
-Also: 
-  - GRANT CONNECT to otobo;
-  - GRANT CREATE SESSION to otobo;
-  - GRANT CREATE TABLE to otobo;
-  - GRANT CREATE sequence TO otobo;
-  - GRANT CREATE TRIGGER TO otobo;
-  - alter user otobo quota unlimited on users;
+Doublecheck with: `sqlplus otrs/otrs@ORCLPDB1`
+
+Set up users and schemas _otrs_ and _otobo_: 
+
+    GRANT CREATE SESSION to otobo;
+    GRANT CREATE TABLE to otobo;
+    GRANT CREATE sequence TO otobo;
+    GRANT CREATE TRIGGER TO otobo;
+    alter user otobo quota unlimited on users;
  
-  - GRANT CONNECT to otrs;
-  - GRANT CREATE SESSION to otrs;
-  - GRANT CREATE TABLE to otobo;
-  - GRANT CREATE sequence TO otobo;
-  - GRANT CREATE TRIGGER TO otrs; 
-  - alter user otrs quota unlimited on users;
+    GRANT CREATE SESSION to otrs;
+    GRANT CREATE TABLE to otobo;
+    GRANT CREATE sequence TO otobo;
+    GRANT CREATE TRIGGER TO otrs; 
+    alter user otrs quota unlimited on users;
    
 # DBD::Oracle
 
