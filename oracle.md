@@ -91,7 +91,7 @@ Set up users and schemas _otrs_ and _otobo_:
 
 Follow instructions in https://doc.znuny.org/doc/manual/admin/6.0/en/html/manual-installation-of-otrs.html
 
-## Apache Config
+## Apache Config   TODO: is this really needed ???
 
 Before running installer.pl, add directives in __<Location /otrs>__ in _/etc/apache2/sites-enabled/zzz_otrs.conf_
 
@@ -100,14 +100,13 @@ Before running installer.pl, add directives in __<Location /otrs>__ in _/etc/apa
 
 Restart Apache widt `sudo service apache2 restart`    
 
-Chosse Oracle and supply these settings:
-
-
 ## Find the correct service name
 
 `docker exec -it oracle_otobo_1 bash ` and then `lsnrctl services` look for the **pdb1** entry.
 
 ## Connection settings
+
+Call installer.pl and supply these settings:
 
     Host: 127.0.0.1
     SID: orclpdb1.localdomain
