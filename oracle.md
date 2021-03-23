@@ -10,6 +10,10 @@ Starting with no Oracle at all.
   - License for development is given via OTN https://www.oracle.com/downloads/licenses/standard-license.html
   - Documentation can only be seen after 'Proceed to checkout'
   - also: https://github.com/oracle/docker-images/tree/main/OracleDatabase/SingleInstance
+  - ` docker run -d -it --name oracle_otobo_1  -p 1521:1521 -p 5500:5500 store/oracle/database-enterprise:12.2.0.1-slim` 
+    - downloading about 1.5 G.
+    - keeping the ports used in the image
+    - do not bother to keep setup and data in Oracle persistent 
 
 # Client
 
@@ -33,14 +37,14 @@ Follow instructions from https://www.rosehosting.com/blog/how-to-install-rpm-pac
 Tell the instant client about the running database:
 
     bernhard@bernhard-HP-250-G6-Notebook-PC:~$ cat $TNS_ADMIN/tnsnames.ora
-    ORCLCDB=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=32769))
+    ORCLCDB=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=1521))
         (CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCLCDB.localdomain)))
-    ORCLPDB1=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=32769))
+    ORCLPDB1=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=1521))
         (CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCLPDB1.localdomain)))
         
 Oracle 12 has a feature called multitenant container database (CDB). Whatever this is,
 care must be taken to log on to ORCLPDB1 and not to ORCLCDB. While we are at it,
-let's create schemas for Znuny and OTOBO.
+let's create schemas for _otrs_ and _otobo_.
 
     bes:/opt/otrs/scripts/database $ sqlplus sys/Oradoc_db1@ORCLPDB1 as sysdba
 
