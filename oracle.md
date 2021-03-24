@@ -44,8 +44,8 @@ Tell the instant client about the running database:
         (CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCLPDB1.localdomain)))
         
 Oracle 12 has a feature called multitenant container database (CDB). Whatever this is,
-care must be taken to log on to ORCLPDB1 and not to ORCLCDB. While we are at it,
-let's create schemas for _otrs_ and _otobo_.
+care must be taken to log on to ORCLPDB1 and not to ORCLCDB.
+
 
     bes:/opt/otrs/scripts/database $ sqlplus sys/Oradoc_db1@ORCLPDB1 as sysdba
 
@@ -59,30 +59,39 @@ let's create schemas for _otrs_ and _otobo_.
     Connected to:
     Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
 
-    SQL> create user otrs identified by otrs;
+    SQL> SELECT TO_CHAR(SYSDATE, 'MM-DD-YYYY HH24:MI:SS') FROM dual;
 
-    User created.
+    TO_CHAR(SYSDATE,'MM
+    -------------------
+    03-24-2021 09:09:26
 
-    SQL> create user otobo identified by otobo;
+    SQL> exit
+    Disconnected from Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
 
-    User created.
 
+# Set up Users and Schemas _otrs_ and _otobo_
+
+Create the file _oracle_setup.sql_ and run the commands:
+
+    bes:~/devel/OTOBO/otobo (issue-#873-oracle_migration)$ cat oracle_setup.sql 
+    CREATE USER otobo IDENTIFIED BY otobo;
+    GRANT CREATE SESSION TO otobo;
+    GRANT CREATE TABLE TO otobo;
+    GRANT CREATE SEQUENCE TO otobo;
+    GRANT CREATE TRIGGER TO otobo;
+    ALTER USER otobo QUOTA UNLIMITED ON users;
+
+    CREATE USER otrs IDENTIFIED BY otrs;
+    GRANT CREATE SESSION TO otrs;
+    GRANT CREATE TABLE TO otrs;
+    GRANT CREATE SEQUENCE TO otrs;
+    GRANT CREATE TRIGGER TO otrs;
+    ALTER USER otrs QUOTA UNLIMITED ON users;
+
+    sqlplus sys/Oradoc_db1@ORCLPDB1 as sysdba < oracle_setup.sql
+    
 Doublecheck with: `sqlplus otrs/otrs@ORCLPDB1`
 
-Set up users and schemas _otrs_ and _otobo_: 
-
-    GRANT CREATE SESSION to otobo;
-    GRANT CREATE TABLE to otobo;
-    GRANT CREATE sequence TO otobo;
-    GRANT CREATE TRIGGER TO otobo;
-    alter user otobo quota unlimited on users;
- 
-    GRANT CREATE SESSION to otrs;
-    GRANT CREATE TABLE to otrs;
-    GRANT CREATE sequence TO otrs;
-    GRANT CREATE TRIGGER TO otrs; 
-    alter user otrs quota unlimited on users;
-   
 # DBD::Oracle
 
     sudo cpanm DBD::Oracle
