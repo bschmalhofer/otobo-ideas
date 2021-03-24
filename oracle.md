@@ -2,7 +2,7 @@ Here are some notes regarding Oracle. The motivation is https://github.com/Rothe
 
 Starting with no Oracle at all under Ubuntu 20.04.
 
-# Server
+# Oracle Server
 
 - The obvious solution would be Oracle Cloud Free Tier, https://www.oracle.com/cloud/free/, but that does not accept my credit card.
 - Fallback https://hub.docker.com/_/oracle-database-enterprise-edition 
@@ -16,9 +16,9 @@ Starting with no Oracle at all under Ubuntu 20.04.
     - do not bother to keep setup and data in Oracle persistent
     - takes a bit to start up, check health with `docker ps`
 
-# Client
+# Oracle Client
 
-Get the instantclient from 21.1.0.0.0. 
+Get the instantclient 21.1.0.0.0 from https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html. 
 - oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm
 - oracle-instantclient-sqlplus-21.1.0.0.0-1.x86_64.rpm.
 - oracle-instantclient-devel-21.1.0.0.0-1.x86_64.rpm
@@ -98,16 +98,7 @@ Doublecheck with: `sqlplus otrs/otrs@ORCLPDB1`
     
 # Install OTRS 6 ((Community Edition))
 
-Follow instructions in https://doc.znuny.org/doc/manual/admin/6.0/en/html/manual-installation-of-otrs.html
-
-## Apache Config   TODO: is this really needed ???
-
-Before running installer.pl, add directives in __<Location /otrs>__ in _/etc/apache2/sites-enabled/zzz_otrs.conf_
-
-    PerlSetEnv ORACLE_HOME /usr/lib/oracle/21/client64
-    PerlSetEnv TNS_ADMIN /usr/lib/oracle/21/client64/network/admin
-
-Restart Apache widt `sudo service apache2 restart`    
+Follow instructions in https://doc.znuny.org/doc/manual/admin/6.0/en/html/manual-installation-of-otrs.html   
 
 ## Find the correct service name
 
@@ -115,7 +106,7 @@ Restart Apache widt `sudo service apache2 restart`
 
 ## Connection settings
 
-Call installer.pl and supply these settings:
+Open http://localhost/otrs/installer.pl and supply these settings:
 
     Host: 127.0.0.1
     SID: orclpdb1.localdomain
