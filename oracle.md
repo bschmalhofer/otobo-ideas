@@ -106,7 +106,7 @@ Follow instructions in https://doc.znuny.org/doc/manual/admin/6.0/en/html/manual
 
 ## Connection settings
 
-Open http://localhost/otrs/installer.pl and supply these settings:
+Open http://localhost/otrs/installer.pl, choose Oracle, and supply these settings:
 
     Host: 127.0.0.1
     SID: orclpdb1.localdomain
@@ -114,3 +114,16 @@ Open http://localhost/otrs/installer.pl and supply these settings:
     Benutzer: otrs
     Passwort: otrs
 
+# Install OTOBO
+
+Follow more or less the instructions in https://doc.otobo.org/manual/installation/stable/en/content/installation.html . In this case link /opt/otobo to a OTOBO sandbox.
+
+## Connection settings
+
+Open http://localhost/otobo/installer.pl, choose Oracle, and supply these settings:
+
+    Host: 127.0.0.1
+    SID: orclpdb1.localdomain
+    Port: 1521
+    Benutzer: otobo
+    Passwort: otobo
