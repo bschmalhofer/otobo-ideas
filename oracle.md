@@ -35,6 +35,7 @@ Follow instructions from https://www.rosehosting.com/blog/how-to-install-rpm-pac
     SQL*Plus: Release 21.0.0.0.0 - Production
     Version 21.1.0.0.0
     
+__TNSNames.ora: This is untested and and most likely not really needed__
 Tell the instant client about the running database:
 
     bernhard@bernhard-HP-250-G6-Notebook-PC:~$ cat $TNS_ADMIN/tnsnames.ora
