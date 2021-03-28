@@ -30,6 +30,7 @@ Some ideas I'm tinkering with.
   * A Louisiana Crèole translation
 * Web related
   * Mojolicious or Raisin, or .., for the Generic Interface
+  * Websockets
   * Check whether OpenGraph is supported
   * facicon 
   * Eliminate Apache altogether
