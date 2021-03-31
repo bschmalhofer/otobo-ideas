@@ -148,3 +148,8 @@ There are many ways to do this. In this case I used Data Pump.
 # Adapt the cloned schema otobo
 
 - scripts/backup.pl --backup-type migratefromotrs
+- sqlplus otobo/otobo@//127.0.0.1/orclpdb1.localdomain < /home/bernhard/devel/OTOBO/otobo/2021-03-31_13-36-55/orclpdb1.localdomain_post.sql >plus.out 2>&1
+- double check with  `select owner, table_name from all_tables where table_name like 'ARTICLE_DATA_OT%_CHAT';
+- Start Apache again
+- Because I forgot the password: `bin/otobo.Console.pl Admin::User::SetPassword root@localhost root`
+- Enjoy!
