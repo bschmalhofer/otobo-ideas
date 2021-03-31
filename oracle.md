@@ -83,7 +83,7 @@ Create the file _oracle_setup.sql_ and run the commands:
 
     sqlplus sys/Oradoc_db1@//127.0.0.1/orclpdb1.localdomain as sysdba < oracle_setup.sql 
     
-Doublecheck with: `sqlplus otrs/otrs@//127.0.0.1/orclpdb1.localdomain`
+Doublecheck with: `sqlplus otrs/otrs@//127.0.0.1/orclpdb1.localdomain` and `sqlplus otobo/otobo@//127.0.0.1/orclpdb1.localdomain`
 
 # DBD::Oracle
 
