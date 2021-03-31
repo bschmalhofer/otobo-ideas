@@ -117,7 +117,16 @@ Open http://localhost/otobo/installer.pl, choose Oracle, and supply these settin
     Benutzer: otobo
     Passwort: otobo
 
-# Export the otrs schema
+# Clone the schema otrs to the schema otobo
+
+See answer 2 of 
+https://stackoverflow.com/questions/26785645/how-to-create-copy-of-full-schema-on-same-database-in-oracle
+
+## Clear out otobo
+
+- DROP USER otobo CASCADE
+
+## Export the otrs schema
 
 There are many ways to do this. In this case I used Data Pump. 
 
@@ -128,7 +137,15 @@ There are many ways to do this. In this case I used Data Pump.
     - GRANT READ, WRITE ON DIRECTORY OTRS_DUMP_DIR TO sys;
  - expdp \"sys/Oradoc_db1@//127.0.0.1/orclpdb1.localdomain as sysdba\"  schemas=otrs directory=OTRS_DUMP_DIR  dumpfile=otrs.dmp logfile=expdpotrs.log
 
-# Import the otrs schema, renaming to otobo
+## Import the otrs schema, renaming to otobo
 
 - docker exec -it oracle_otobo_1 bash
   - impdp \"sys/Oradoc_db1@//127.0.0.1/orclpdb1.localdomain as sysdba\" directory=OTRS_DUMP_DIR dumpfile=otrs.dmp logfile=impdpotobo.log  remap_schema=otrs:otobo
+
+## Update password 
+
+- ALTER USER otobo IDENTIFIED BY otobo;
+
+# Adapt the cloned schema otobo
+
+- scripts/backup.pl --backup-type migratefromotrs
