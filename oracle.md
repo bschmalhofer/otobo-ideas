@@ -134,7 +134,7 @@ There are many ways to do this. In this case I used Data Pump.
 - docker exec -it oracle_otobo_1 bash
   - mkdir /tmp/otrs_dump_dir
   - sqlplus sys/Oradoc_db1@//127.0.0.1/orclpdb1.localdomain as sysdba
-    - CREATE DIRECTORY OTRS_DUMP_DIR AS '/tmp/orts_dump_dir';
+    - CREATE DIRECTORY OTRS_DUMP_DIR AS '/tmp/otrs_dump_dir';
     - GRANT READ, WRITE ON DIRECTORY OTRS_DUMP_DIR TO sys;
  - expdp \"sys/Oradoc_db1@//127.0.0.1/orclpdb1.localdomain as sysdba\"  schemas=otrs directory=OTRS_DUMP_DIR  dumpfile=otrs.dmp logfile=expdpotrs.log
 
