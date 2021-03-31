@@ -142,10 +142,8 @@ There are many ways to do this. In this case I used Data Pump.
 
 - docker exec -it oracle_otobo_1 bash
   - impdp \\"sys/Oradoc_db1@//127.0.0.1/orclpdb1.localdomain as sysdba\\" directory=OTRS_DUMP_DIR dumpfile=otrs.dmp logfile=impdpotobo.log  remap_schema=otrs:otobo
-
-## Update password 
-
-- ALTER USER otobo IDENTIFIED BY otobo;
+- double check with  `select owner, table_name from all_tables where table_name like 'ARTICLE_DATA_OT%_CHAT';` 
+- `ALTER USER otobo IDENTIFIED BY otobo;`
 
 # Adapt the cloned schema otobo
 
