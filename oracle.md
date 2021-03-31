@@ -124,6 +124,7 @@ https://stackoverflow.com/questions/26785645/how-to-create-copy-of-full-schema-o
 
 ## Clear out otobo
 
+- stop the webserver, so that the DB connection for otobo is shut down
 - DROP USER otobo CASCADE
 
 ## Export the otrs schema
