@@ -15,10 +15,11 @@ Using a Oracle database server running under Docker on the local machine. An alt
   - keeping the ports used in the image
   - do not bother to keep setup and data in Oracle persistent
   - takes a bit to start up, check health with `docker ps`
+  - the database use _sys_ has the password _Oradoc_db1_
 
 # Find the correct service name
 
-`docker exec -it oracle_otobo_1 bash ` and then `lsnrctl services` look for the **pdb1** entry.
+`docker exec -it oracle_otobo_1 bash ` and then `lsnrctl services` look for the **pdb1** entry. In this setup we get __Service "orclpdb1.localdomain" has 1 instance(s).__
 
 # Oracle Client
 
@@ -105,7 +106,8 @@ Open http://localhost/otrs/installer.pl, choose Oracle, and supply these setting
 
 # Install OTOBO
 
-Follow more or less the instructions in https://doc.otobo.org/manual/installation/stable/en/content/installation.html . In this case link /opt/otobo to a OTOBO sandbox.
+Follow the instructions in https://doc.otobo.org/manual/installation/stable/en/content/installation.html . In this case link _/opt/otobo_ to a OTOBO sandbox.
+It might be necessary that _/etc/apache2/sites-enabled/zzz_otrs.conf_ is removed first. 
 
 ## Connection settings
 
