@@ -144,14 +144,26 @@ There are many ways to do this. In this case I used Data Pump.
 
 - docker exec -it oracle_otobo_1 bash
   - impdp \\"sys/Oradoc_db1@//127.0.0.1/orclpdb1.localdomain as sysdba\\" directory=OTRS_DUMP_DIR dumpfile=otrs.dmp logfile=impdpotobo.log  remap_schema=otrs:otobo
-- double check with  `select owner, table_name from all_tables where table_name like 'ARTICLE_DATA_OT%_CHAT';` 
-- `ALTER USER otobo IDENTIFIED BY otobo;`
+- sqlplus sys/Oradoc_db1@//127.0.0.1/orclpdb1.localdomain as sysdba
+  - double check with  `select owner, table_name from all_tables where table_name like 'ARTICLE_DATA_OT%_CHAT';` 
+  - `ALTER USER otobo IDENTIFIED BY otobo;`
 
 # Adapt the cloned schema otobo
 
-- scripts/backup.pl --backup-type migratefromotrs
-- sqlplus otobo/otobo@//127.0.0.1/orclpdb1.localdomain < /home/bernhard/devel/OTOBO/otobo/2021-03-31_13-36-55/orclpdb1.localdomain_post.sql >plus.out 2>&1
+- `cd /opt/otobo`
+- `scripts/backup.pl --backup-type migratefromotrs`  it's OK that the command knows only about the otobo database, only last line is relevant
+- sqlplus otobo/otobo@//127.0.0.1/orclpdb1.localdomain < /home/bernhard/devel/OTOBO/otobo/2021-03-31_13-36-55/orclpdb1.localdomain_post.sql >sqlplus.out 2>&1
 - double check with  `select owner, table_name from all_tables where table_name like 'ARTICLE_DATA_OT%_CHAT';
 - Start Apache again
 - Because I forgot the password: `bin/otobo.Console.pl Admin::User::SetPassword root@localhost root`
-- Enjoy!
+
+# migration.pl
+
+- Login as root@localhost and deactivate SecureMode
+- http://localhost/otobo/migration.pl
+  - TODO: /otrs-web in ZZZAAuto.pm
+  - TODO: Willkommen bei Znuny LTS
+  - Workaround: rm Kernel/Config/Files/ZZZAAuto.pm
+  - skip database migration
+- Log in at http://localhost/otobo/index.pl als root@localhost
+- Ticket 'Znuny says h1!' as doublecheck
