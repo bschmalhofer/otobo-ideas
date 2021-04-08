@@ -119,6 +119,10 @@ Open http://localhost/otobo/installer.pl, choose Oracle, and supply these settin
     Benutzer: otobo
     Passwort: otobo
 
+## SecureMode
+
+Deactivate SecureMode
+
 # Clone the schema otrs to the schema otobo
 
 See answer 2 of 
@@ -159,11 +163,7 @@ There are many ways to do this. In this case I used Data Pump.
 
 # migration.pl
 
-- Login as root@localhost and deactivate SecureMode
 - http://localhost/otobo/migration.pl
-  - TODO: /otrs-web in ZZZAAuto.pm
-  - TODO: Willkommen bei Znuny LTS
-  - Workaround: rm Kernel/Config/Files/ZZZAAuto.pm
   - skip database migration
 - Log in at http://localhost/otobo/index.pl als root@localhost
 - Ticket 'Znuny says h1!' as doublecheck
