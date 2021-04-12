@@ -11,3 +11,5 @@
     </pre>
   </div>
 </details>
+
+Browser support is detailed at https://caniuse.com/details.
