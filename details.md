@@ -13,3 +13,4 @@
 </details>
 
 Browser support is detailed at https://caniuse.com/details.
+Thanks to https://marinakittaka.com/posts/2020-12-10-The-wonderful-world-of-HTML-details-tag.html.
