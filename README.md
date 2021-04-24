@@ -36,6 +36,8 @@ Some ideas I'm tinkering with.
   * Eliminate Apache altogether
 * Security
   * Find a maintained source of CPAN security advisories, like https://github.com/vti/cpan-security-advisory  
+* File system
+  * When articles are stored in the file system the a directory tree with a lot of files is possible. This is a pain for backup. How about transfering ald files to squashfs or such?
 
 ### Implemented, or Discarded, Ideas
 
