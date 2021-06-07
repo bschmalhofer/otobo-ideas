@@ -15,13 +15,12 @@ Some ideas I'm tinkering with.
   * add H2 backend, interesting because of the compatability modes
   * use DBD::MariaDB instead of DBD::mysql
 * Implementation
-  * use `XML::Compile::WSDL`for SOAP
+  * use `XML::Compile::WSDL11`for SOAP
   * use `Sereal`insted of `Storable`
-  * use `Email::Sender`
+  * use `Email::Stuffer`
   * use `Log::Log4perl`
   * use `Capture::Tiny`
 * Testing
-  * currently about 35 Selenium tests are still failing
   * maybe use Plack::Test
 * Continous Integration
   * pretty much still TODO
@@ -82,6 +81,8 @@ Some ideas I'm tinkering with.
 * Perl::Tidy, part of the CodePolicy
 
 * Test scripts can use `Test2::V0` and `Kernel::System::UnitTest` side by side
+
+* favicon not needed as shortcut icon is set in HTMLHead.tt
 
 ## PSGI
 
