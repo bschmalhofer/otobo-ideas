@@ -31,7 +31,6 @@ Some ideas I'm tinkering with.
   * Mojolicious or Raisin, or .., for the Generic Interface
   * Websockets
   * Check whether OpenGraph is supported
-  * facicon 
   * Eliminate Apache altogether
 * Security
   * Find a maintained source of CPAN security advisories, like https://github.com/vti/cpan-security-advisory  
