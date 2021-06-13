@@ -102,10 +102,14 @@ PSGI is now officially supported. But of course things can always be improved.
 
 ### PSGI stumbling blocks
 
+Things that must be considered when porting OTOBO core or OTOBO modules to 10.1.x.
+
 - `%ENV`no longer has the accustomed data. The Request-Object in `Kernel::System::Web::Request` must be used for that.
 - Encoding issues might be lurking. But the gut feeling is that things are more simple with PSGI.
 - Care must be taken that HTTP headers are not set in the content. `Kernel::System::Web::Response` must be used.
 - There are dependencies on CPAN modules.
+- Redirects must be done by calling K::O::H::Layout::Redirect()
+- Fatal errors muse be thrown by calling K::O::H::Layout::FatalError()
 - Printing to STDOUT is no longer a thing.
 
 ### What about CGI scripts ?
