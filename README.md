@@ -158,25 +158,7 @@ This means that for every request the modification time all modules in `%INC` ar
 
 `Kernel::System::ZnunyHelper::RebuildConfig` deletes from `%INC`.
 
-
-
-## Notes regarding the development process
-
-### Working with a git checkout on the local machine
-
-* https://github.com/bschmalhofer/otobo is a fork of https://github.com/RotherOSS/otobo
-* in a workspace as otobo: git clone https://github.com/bschmalhofer/otobo.git
-* Link /opt/otobo to the checked out repos
-* sudo /opt/otobo/bin/otobo.SetPermissions.pl
-* Add local user to the group www-data, this should give you write privs
-* Edit the code e.g. with IntelliJ IDEA
-* check in the changed files as otobo
-* push as otobo to Github
-* Create pull request in Github
-
-### Working with IntelliJ IDEA
-
-TODO
+## Helper, Tips and Tricks
 
 ### Aliases
 
@@ -206,6 +188,7 @@ alias otobo_docker_restore="docker run -it --rm --volume otobo_opt_otobo:/opt/ot
 alias otobo_prove="prove -I . -I Kernel/cpan-lib -I Custom --verbose -r"
 alias otobo_perl="perl -I . -I Kernel/cpan-lib -I Custom"
 ```
+
 ### Git prompt
 
 ```
