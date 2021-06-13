@@ -20,6 +20,7 @@ Some ideas I'm tinkering with.
   * use `Email::Stuffer`
   * use `Log::Log4perl`
   * use `Capture::Tiny`
+  * use `Feature::Compat::Try`
 * Testing
   * maybe use Plack::Test
 * Continous Integration
