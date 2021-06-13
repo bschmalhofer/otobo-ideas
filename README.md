@@ -60,7 +60,7 @@ Some ideas I'm tinkering with.
   Done, see https://hub.docker.com/repository/docker/rotheross/otobo.
 
 * The minimal version of Perl is now `5.24.0`. 
- 
+
   Say hi to the optional `postderef_qq` feature and the automatically activated `postderef` feature.
 
 * Minimal Apache Version defined as 2.4.
@@ -82,6 +82,8 @@ Some ideas I'm tinkering with.
 * Test scripts can use `Test2::V0` and `Kernel::System::UnitTest` side by side
 
 * favicon not needed as shortcut icon is set in HTMLHead.tt
+
+* Changed files in _Kernel/Config/Files_ are reloaded in `Kernel::Config:Defaults::new()`
 
 ## PSGI
 
@@ -124,39 +126,6 @@ Kelp is a thin wrapper around Plack. This makes it IMHO an interesting option fo
 ### Current status
 
 Deep support for PSGI in the 10.1 branch
-
-## Refreshing modules
-
-One feature of OTOBO is that in a persistent Perl environment modules on disk might change and therefore must be reloaded.
-The use cases are:
-
-- An OTOBO package overwrites an existing module
-
-- An OTOBO package creates a new version of a module in the _Custom_ folder
-
-- A config cache was updated in _Kernel/Config/Files
-  - ZZZAAuto.pm
-  - ZZZACL.pm
-  - ZZZProcessManagement.xml
-  - possibly others
-
-### Current implementation for using OTOBO 10.0.9 under Apache
-
-It is required that mod_perl is activated and that Apache2::Reload is installed. The Apache config has these settings:
-
-    # Reload Perl modules when changed on disk
-    PerlModule Apache2::Reload
-    PerlInitHandler Apache2::Reload
-    
-This means that for every request the modification time all modules in `%INC` are checked. Modified modules are reloaded.
-
-`Kernel::System::ObjectManager::ObjectsDiscard` has the option `ForcePackageReload` which removes the module from `%INC`. However it looks like this option is almost never used.
-
-`Kernel::System::MigrateFromOTRS::Base::RebuildConfig()` and `Kernel::System::Daemon::DaemonModules::SchedulerTaskWorker::Run` remove _ZZZAAuto.pm_ and _ZZZAuto.pm_ from `%INC` in order to force are reload of the config cache.
-
-`Kernel::System::SysConfig::Base::OTOBOCommunity::UserConfigurationDeploySync` also deletes from `%INC`. Not sure whether this is still relevant.
-
-`Kernel::System::ZnunyHelper::RebuildConfig` deletes from `%INC`.
 
 ## Helper, Tips and Tricks
 
