@@ -19,6 +19,7 @@ Some ideas I'm tinkering with.
   * use `Sereal`insted of `Storable`
   * use `Email::Stuffer`
   * use `Log::Log4perl`
+  * use `CHI`
   * use `Capture::Tiny`
   * use `Feature::Compat::Try`
 * Testing
