@@ -16,7 +16,7 @@ Some ideas I'm tinkering with.
   * use DBD::MariaDB instead of DBD::mysql
 * Implementation
   * use `XML::Compile::WSDL11`for SOAP
-  * use `Sereal`insted of `Storable`
+  * use `Sereal`instead of `Storable`
   * use `Email::Stuffer`
   * use `Log::Log4perl`
   * use `CHI`
@@ -24,6 +24,8 @@ Some ideas I'm tinkering with.
   * use `Feature::Compat::Try`
 * Testing
   * maybe use Plack::Test
+  * check NYTProf again
+  * Devel::Cover
 * Continous Integration
   * pretty much still TODO
 * Translation
