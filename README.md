@@ -31,11 +31,15 @@ Some ideas I'm tinkering with.
 * Translation
   * use N-tier translations, e.g. Portuguese falling back to Brazilian Portugues falling back to English
   * A Louisiana Crèole translation
+* API related
+  * specification as an OpenAPI document
+  * generate stubs, maybe for Raisin
+  * implement the backend  
 * Web related
-  * Mojolicious or Raisin, or .., for the Generic Interface
   * Websockets
   * Check whether OpenGraph is supported
   * Eliminate Apache altogether
+  * document how run OTOBO with plackup, without Docker
 * Security
   * Find a maintained source of CPAN security advisories, like https://github.com/vti/cpan-security-advisory  
 * File system
