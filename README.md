@@ -17,7 +17,7 @@ Some ideas I'm tinkering with.
 * Implementation
   * use `XML::Compile::WSDL11`for SOAP
   * use `Sereal`instead of `Storable`
-  * use `Email::Stuffer`
+  * use `Mail::Message and Mail::Transport`
   * use `Log::Log4perl`
   * use `CHI`
   * use `Capture::Tiny`
