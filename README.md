@@ -40,6 +40,8 @@ Some ideas I'm tinkering with.
   * Check whether OpenGraph is supported
   * Eliminate Apache altogether
   * document how run OTOBO with plackup, without Docker
+  * Create an OpenAPI based interface
+  * Switch from REST::Client to Mojo::UserAgent in the generic interface
   
 * Security
   * Find a maintained source of CPAN security advisories, like https://github.com/vti/cpan-security-advisory  
