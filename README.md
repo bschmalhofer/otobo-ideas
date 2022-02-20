@@ -41,6 +41,7 @@ Some ideas I'm tinkering with.
   * Eliminate Apache altogether
   * document how run OTOBO with plackup, without Docker
   * Switch from REST::Client to Mojo::UserAgent in the generic interface
+  * Support for status 103 though the code is still experimental: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103, https://metacpan.org/pod/Gazelle#psgix.informational
   
 * Security
   * Find a maintained source of CPAN security advisories, like https://github.com/vti/cpan-security-advisory  
