@@ -22,6 +22,7 @@ Some ideas I'm tinkering with.
   * use `CHI`
   * use `Capture::Tiny`
   * use `Feature::Compat::Try`
+  * Enhance import statements: https://metacpan.org/pod/perlimports
 * Testing
   * maybe use Plack::Test
   * check NYTProf again
