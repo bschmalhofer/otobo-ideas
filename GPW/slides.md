@@ -3,14 +3,16 @@
 What ist the OTOBO webapp. Open Source. Rother OSS
 
 ![Rother OSS people](https://rother-oss.com/wp-content/uploads/2020/05/Header-rother-OSS-experten-fuer-die-otrs-community-edition-1500x630.jpg)
+![Meet Harry](https://otobo.de/wp-content/uploads/2020/07/OTOBO-Login-495x400.png)
 
 # Timeline
 
 - 2001: OTRS started by Martin Edenhofer
 - 2003: OTRS 1.0
+- 2011: Rother OSS founded by Stefan Rother
 - 2017: OTRS 6.0
 - 2018: ((OTRS)) Community Edition
-- 2019: Fork started by Rother OSS:  Rother and Sven Oesterling
+- 2019: OTOBO forked by Rother OSS: Stefan Rother and Sven Oesterling
 - 2020-01-30: OTOBO 10.0.0 Beta 1
 - 2020-07-13: OTOBO 10.0.1 
   - support for Docker
@@ -34,7 +36,8 @@ What ist the OTOBO webapp. Open Source. Rother OSS
 ## Excursion Docker
 
 - Perl image
-- 
+- Carton
+- plackup
 
 ## Excursion Why Plack and not *your favorite framework*
 
