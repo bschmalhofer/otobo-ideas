@@ -42,12 +42,13 @@
 - 2022-03-02: OTOBO 10.1.1
  
 
-# old architecture OTOBO 10.0.x
+# traditional architecture OTOBO 10.0.x
 
+- Apache 2.4
 - CGI scripts running under Modperl::Registry
 - Database and Template Toolkit
 
-## Excursion 1: mod_perl and [Modperl::Registry](modperl_registry.md)
+## Excursion 1: mod_perl and [ModPerl::Registry](modperl_registry.md)
 
 # OTOBO 10.0 under Docker with PSGI
 
