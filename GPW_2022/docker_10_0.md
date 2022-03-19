@@ -5,3 +5,15 @@ Starting a Docker container runs [entrypoint.sh](https://github.com/RotherOSS/ot
 **plackup** uses [otobo.psgi](https://github.com/RotherOSS/otobo/blob/rel-10_0/bin/psgi-bin/otobo.psgi)
 
 See line 500: `CGI::Handler::PSGI`.
+
+## Why Plack and not *your favorite framework* ?
+
+Keep the required changes to a minimum.
+
+## Excursion Gazelle
+
+Does not matter at all, as long as it is preforked. Somebody wrote that Gazelle was the fastest web server.
+
+## CGI::Emulate::PSGI
+
+Just about no code adaptions needed.
