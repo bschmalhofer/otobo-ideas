@@ -50,17 +50,7 @@
 
 The initial requirement was that customers have a simple way of running OTOBO. Inspired by <https://hub.docker.com/r/juanluisbaptiste/otrs/>.
 
-## Excursion Docker
-
-- Perl image
-- Carton
-- plackup
-
-## Excursion Why Plack and not *your favorite framework*
-
-## Excursion Gazelle
-
-## Plack::Handler::CGI
+## Excursion2: [Docker Support](docker_10_0.md)
 
 # OTOBO 10.1 The real thing
 
@@ -68,15 +58,17 @@ The initial requirement was that customers have a simple way of running OTOBO. I
 - Plack::Handler::Apache2 when running under Apache
 - wrapper scripts using **Modperl::Registry** as a fallback
 
-## The request
-
 ## Environment
+
+## The request
 
 ## exit
 
 ## STDIN
 
 ## Traps and special cases
+
+PUT, PATCH
 
 # Yes, we are hiring
 
