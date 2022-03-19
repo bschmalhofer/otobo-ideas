@@ -47,7 +47,7 @@
 - CGI scripts running under Modperl::Registry
 - Database and Template Toolkit
 
-## Recap mod_perl and Modperl::Registry
+## Excursion 1: mod_perl and [Modperl::Registry](modperl_registry.md)
 
 # OTOBO 10.0 under Docker with PSGI
 
