@@ -23,7 +23,6 @@
 ![Rother OSS people](https://rother-oss.com/wp-content/uploads/2020/05/Header-rother-OSS-experten-fuer-die-otrs-community-edition-1500x630.jpg)
 ![Meet Harry](https://otobo.de/wp-content/uploads/2020/07/OTOBO-Login-495x400.png)
 
-
 ## Timeline
 
 - 2001: OTRS started by Martin Edenhofer
@@ -35,22 +34,21 @@
 - 2018: OTRS AG rebrands the open source release as _((OTRS)) Community Edition_
 - 2019: Rother OSS forks OTOBO from the community edition
 - 2020-01-30: OTOBO 10.0.0 Beta 1
-- 2020-07-13: OTOBO 10.0.1 with Docker support
-  - support for Docker
-  - Docker-based installations: Plack application running under Gazelle
-  - non-Docker: Modperl::Registry under Apache 2.4
-- 2022-03-02: OTOBO 10.1.1
+- 2020-07-13: OTOBO 10.0.1 with Docker support: first part of this talk
+- 2022-03-02: OTOBO 10.1.1 with PSGI everywhere: second part of this talk
  
-
 # traditional architecture OTOBO 10.0.x
 
 - Apache 2.4
-- CGI scripts running under Modperl::Registry
-- Database and Template Toolkit
+- CGI scripts running under `ModPerl::Registry`
+- relational database in the backend
+- Template Toolkit in the frontend
 
 ## Excursion 1: mod_perl and [ModPerl::Registry](modperl_registry.md)
 
 # OTOBO 10.0 under Docker with PSGI
+
+The initial requirement was that customers have a simple way of running OTOBO. Inspired by <https://hub.docker.com/r/juanluisbaptiste/otrs/>.
 
 ## Excursion Docker
 
@@ -89,4 +87,5 @@
 
 - [OTOBO](https://otobo.de/de/community/)
 - [OTOBO on Github](https://github.com/RotherOSS/otobo)
+- [OTRS under Docker](https://hub.docker.com/r/juanluisbaptiste/otrs/)
 - [OTRS on Wikipedia](https://de.wikipedia.org/wiki/OTRS)
