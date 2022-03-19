@@ -14,7 +14,7 @@
 
 ## What is OTOBO ?
 
-- an open source web based ticketing system. help desk not concerts
+- an open source web based ticketing system, where ticketing refers to help desk, not to concerts
 - forked from OTRS in 2019 by Rother OSS
 - supports ITSM, that is IT Service Management
 
