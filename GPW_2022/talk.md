@@ -39,10 +39,11 @@
  
 # traditional architecture OTOBO 10.0.x
 
-- Apache 2.4
+- Apache 2.4 with **mpm_prefork** and **mod_perl**
 - CGI scripts running under `ModPerl::Registry`
 - relational database in the backend
 - Template Toolkit in the frontend
+- in between a lot of interface modules, not really a framework
 
 ## Excursion 1: mod_perl and [ModPerl::Registry](modperl_registry.md)
 
