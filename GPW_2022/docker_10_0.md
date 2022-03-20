@@ -14,7 +14,7 @@ Does not matter at all, as long as it is preforked. Somebody wrote that Gazelle 
 
 ## CGI::Emulate::PSGI
 
-Just about no code adaptions needed.
+Just about no code adaptions needed. The [good old CGI.pm](https://github.com/RotherOSS/otobo/blob/rel-10_0/Kernel/System/Web/Request.pm#L93) is still used.
 
 ## _/opt/otobo_ must be persistent
 
