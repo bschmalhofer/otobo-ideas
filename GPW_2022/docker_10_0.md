@@ -14,7 +14,7 @@ Does not matter at all, as long as it is preforked. Somebody wrote that Gazelle 
 
 ## CGI::Emulate::PSGI
 
-Just about no code adaptions needed. Add the wrapper in [otobo.psgi](https://github.com/RotherOSS/otobo/blob/rel-10_0/bin/psgi-bin/otobo.psgi#L500). Then the [venerable CGI.pm](https://github.com/RotherOSS/otobo/blob/rel-10_0/Kernel/System/Web/Request.pm#L93) can kick in.
+Just about no code adaptions needed. Add the wrapper in [otobo.psgi](https://github.com/RotherOSS/otobo/blob/rel-10_0/bin/psgi-bin/otobo.psgi#L509). Then the [venerable CGI.pm](https://github.com/RotherOSS/otobo/blob/rel-10_0/Kernel/System/Web/Request.pm#L93) can kick in.
 
 ## _/opt/otobo_ must be persistent
 e
