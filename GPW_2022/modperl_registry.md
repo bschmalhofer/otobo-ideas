@@ -37,3 +37,5 @@ and turns it into an mod_perl request handler.
         ),
         '<h1>Hallo 🌍!</h1>';
     }
+    
+And somewhere in mod_perl the environment variables are set up.    
