@@ -14,8 +14,8 @@ Does not matter at all, as long as it is preforked. Somebody wrote that Gazelle 
 
 ## CGI::Emulate::PSGI
 
-Just about no code adaptions needed. The [good old CGI.pm](https://github.com/RotherOSS/otobo/blob/rel-10_0/Kernel/System/Web/Request.pm#L93) is still used.
+Just about no code adaptions needed. Add the wrapper in [otobo.web.dockerfile](https://github.com/RotherOSS/otobo/blob/rel-10_0/otobo.web.dockerfile#L55). Then the [venerable CGI.pm](https://github.com/RotherOSS/otobo/blob/rel-10_0/Kernel/System/Web/Request.pm#L93) can kick in.
 
 ## _/opt/otobo_ must be persistent
-
+e
 This is a bit unfortunate. Solved by using a [Docker volume](https://github.com/RotherOSS/otobo-docker/blob/rel-10_0/docker-compose/otobo-base.yml#L61) 
