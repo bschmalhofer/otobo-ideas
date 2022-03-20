@@ -41,8 +41,8 @@ Interface for running Perl based application in many environments.
 - 2020-01-30: OTOBO 10.0.0 Beta 1
 - 2020-07-13: OTOBO 10.0.1 with Docker support: first part of this talk
 - 2022-03-02: OTOBO 10.1.1 with PSGI everywhere: second part of this talk
- 
-# traditional architecture OTOBO 10.0.x
+
+# The Traditional Architecture OTOBO 10.0
 
 - Apache 2.4 with **mpm_prefork** and **mod_perl**
 - CGI scripts running under `ModPerl::Registry`
