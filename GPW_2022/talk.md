@@ -4,6 +4,7 @@
 
 - Bernhard Schmalhofer from Munich.pm
 - First dabbled with Perl in 1990 while studying physics
+- Some years in bioinformatics
 - Freelancing since 2008
 - Became involved with OTOBO in 2020
 
@@ -17,6 +18,10 @@
 - an open source web based ticketing system, where ticketing refers to help desk, not to concerts
 - forked from OTRS in 2019 by Rother OSS
 - supports ITSM, that is IT Service Management
+
+## What is PSGI ?
+
+Interface for running Perl based application in many environments.
 
 ## Meet the Team
 
@@ -32,7 +37,7 @@
 - 2011: Rother OSS founded by Stefan Rother
 - 2017: OTRS 6.0
 - 2018: OTRS AG rebrands the open source release as _((OTRS)) Community Edition_
-- 2019: Rother OSS forks OTOBO from the community edition
+- 2019: Rother OSS forks OTOBO from _((OTRS)) Community Edition_. Development by Stefan and Sven.
 - 2020-01-30: OTOBO 10.0.0 Beta 1
 - 2020-07-13: OTOBO 10.0.1 with Docker support: first part of this talk
 - 2022-03-02: OTOBO 10.1.1 with PSGI everywhere: second part of this talk
