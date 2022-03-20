@@ -141,9 +141,28 @@ so the reads from STDIN could be removed. Take care to consider not only POSTDAT
 
 Collect the headers in the response object and attach the content later. `Plack::Response::finalize()` does the job.
 
+    @@ -4245,13 +4330,16 @@ sub CustomerHeader {
+             $Param{ColorDefinitions} .= "--col$Color:$ColorDefinitions->{ $Color };";
+         }
+     
+    +    $Self->_AddHeadersToResponseObject(
+    +        ContentDisposition            => $Param{ContentDisposition},
+    +        DisableIFrameOriginRestricted => $Param{DisableIFrameOriginRestricted},
+    +    );
+    +
+         # create & return output
+    -    $Output .= $Self->Output(
+    +    return $Self->Output(
+             TemplateFile => "CustomerHeader$Type",
+             Data         => \%Param,
+         );
+    -
+    -    return $Output;
+     }
+     
 ## Long polling, Comet
 
-Was not relevant for OTOBO.
+Long polling was not relevant for OTOBO. It could be implemented by returning a long running subroutine in the PSGI response. This approach is planned to be used for delivering attachments in OTOBO.
 
 ## Encoding
 
