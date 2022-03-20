@@ -58,17 +58,95 @@ The initial requirement was that customers have a simple way of running OTOBO. I
 - Plack::Handler::Apache2 when running under Apache
 - wrapper scripts using **Modperl::Registry** as a fallback
 
-## Environment
+## The Query Object
 
-## The request
+The query parameters are no longer extracted from the environment variables. The PSGI `$Env` is used instead.
 
-## exit
+    @@ -87,10 +109,22 @@ sub new {
+         # max 5 MB posts
+         $CGI::POST_MAX = $ConfigObject->Get('WebMaxFileUpload') || 1024 * 1024 * 5;
+     
+    -    # The query is usually constructed from the CGI relevant environment variables, e.g. QUERY_STRING,
+    -    # and from reading STDIN.
+    -    # In specific cases, e.g. test scripts, a already prepared query object can be passed in.
+    -    $Self->{Query} = $Param{WebRequest} || CGI->new();
+    +    # query object when PSGI env is passed, the recommended usage
+    +    if ( $Param{PSGIEnv} ) {
+    +        $Self->{Query} = CGI::PSGI->new( $Param{PSGIEnv} );
+    +    }
+    +
+    +    # query object (in case use already existing WebRequest, e. g. fast cgi or classic cgi)
+    +    elsif ( $Param{WebRequest} ) {
+    +        $Self->{Query} = $Param{WebRequest};
+    +    }
+    +
+    +    # Use an empty CGI object as a fallback.
+    +    # This is needed because the ParamObject is sometimes created outside a web context.
+    +    # Pass an empty string, in order to avoid that params in %ENV are considered.
+    +    else {
+    +        $Self->{Query} = CGI->new('');
+    +    }
+     
+         return $Self;
+     }
+    @@ -130,9 +164,11 @@ sub GetParam {
 
-## STDIN
 
-## Traps and special cases
+## Environment 
 
-PUT, PATCH
+In OTOBO 10.0 there was direct access to environment variables.
+
+    @@ -106,11 +113,15 @@ sub ProviderProcessRequest {
+             );
+         }
+     
+    +    # The HTTP::REST support works with a request object.
+    +    # Just like Kernel::System::Web::InterfaceAgent.
+    +    my $ParamObject = $Kernel::OM->Get('Kernel::System::Web::Request');
+    +
+         my $EncodeObject = $Kernel::OM->Get('Kernel::System::Encode');
+     
+         my $Operation;
+         my %URIData;
+    -    my $RequestURI = $ENV{REQUEST_URI};
+    +    my $RequestURI = $ParamObject->RequestURI();
+         $RequestURI =~ s{.*Webservice(?:ID)?\/[^\/]+(\/.*)$}{$1}xms;
+     
+         # Remove any query parameter from the URL
+    @@ -161,7 +172,7 @@ sub ProviderProcessRequest {
+             }
+         }
+     
+    -    my $RequestMethod = $ENV{'REQUEST_METHOD'} || 'GET';
+    +    my $RequestMethod = $ParamObject->RequestMethod() || 'GET';
+         ROUTE:
+         for my $CurrentOperation ( sort keys %{ $Config->{RouteOperationMapping} } ) {
+     
+    @@ -223,7 +234,11 @@ sub ProviderProcessRequest {
+
+## Reading from STDIN
+
+Direct reading from STDIN no longer works. In OTOBO 10.0 there were already fallbacks to using the query objects,
+so the reads from STDIN could be removed. Take care to consider not only POSTDATA. PUT and PATCH are also relevant.
+
+    # The body supplied by POST, PUT, and PATCH has already been read in. This should be safe
+    # as $CGI::POST_MAX has been set as an emergency brake.
+    # For Checking the length we can therefor use the actual length.
+    my $Content = $ParamObject->GetParam( Param => uc($RequestMethod) . 'DATA' );
+
+## Writing to STDOUT
+
+## Setting headers
+
+Collect the headers in the response object and attach the content later. `Plack::Response::finalize()` does the job.
+
+## Long polling, Comet
+
+Was not relevant for OTOBO.
+
+## Encoding
+
+Decoding and encoding is still done incorrectly.
 
 # Yes, we are hiring
 
@@ -81,3 +159,5 @@ PUT, PATCH
 - [OTOBO on Github](https://github.com/RotherOSS/otobo)
 - [OTRS under Docker](https://hub.docker.com/r/juanluisbaptiste/otrs/)
 - [OTRS on Wikipedia](https://de.wikipedia.org/wiki/OTRS)
+- [Porting guidelines](https://github.com/bschmalhofer/otobo-ideas#psgi-stumbling-blocks)
+
