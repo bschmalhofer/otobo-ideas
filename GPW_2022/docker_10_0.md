@@ -18,4 +18,4 @@ Just about no code adaptions needed.
 
 ## _/opt/otobo_ must be persistent
 
-This is a bit unfortunate. Solved by using a Docker [volume](https://github.com/RotherOSS/otobo-docker/blob/rel-10_0/docker-compose/otobo-base.yml) 
+This is a bit unfortunate. Solved by using a [Docker volume](https://github.com/RotherOSS/otobo-docker/blob/rel-10_0/docker-compose/otobo-base.yml#L61) 
