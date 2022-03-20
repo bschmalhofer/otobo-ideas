@@ -175,14 +175,15 @@ Decoding and encoding is still done incorrectly.
 
 # Yes, we are hiring
 
-[OTOBO Jobs](https://otobo.de/de/jobs/)
-[Contribute](https://otobo.de/de/community/)
+- [OTOBO Jobs](https://otobo.de/de/jobs/)
+- [OTOBO Community](https://otobo.de/de/community/)
 
 # Sources
 
 - [OTOBO](https://otobo.de/de/community/)
+- [OTRS on Wikipedia](https://de.wikipedia.org/wiki/OTRS)
 - [OTOBO on Github](https://github.com/RotherOSS/otobo)
 - [OTRS under Docker](https://hub.docker.com/r/juanluisbaptiste/otrs/)
-- [OTRS on Wikipedia](https://de.wikipedia.org/wiki/OTRS)
+- [Fron CGI to PSGI](https://perlmaven.com/from-cgi-to-psgi-and-starman)
 - [Porting guidelines](https://github.com/bschmalhofer/otobo-ideas#psgi-stumbling-blocks)
 
