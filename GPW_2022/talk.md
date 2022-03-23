@@ -99,7 +99,7 @@ Harry
         '<h1>Hallo 🌍!</h1>';
 
 
-and turns it into an mod\_perl request handler
+.. and turns it into a subroutine
 
     package ModPerl::ROOT::ModPerl::Registry::opt_otobo_bin_cgi_2dbin_hallo_welt_2epl;
     sub handler {local $0 = '/opt/otobo/bin/cgi-bin/hallo_welt.pl';
@@ -120,19 +120,20 @@ and turns it into an mod\_perl request handler
     }
 
 
-and somewhere the environment variables and STDIN are set up
+... and somewhere the environment variables and STDIN are set up and the sub is called
 
 
 
 # OTOBO 10.0 under Docker with PSGI
 
-- initial requirement was that customers have a simple way of running OTOBO
-- prior art by <https://hub.docker.com/r/juanluisbaptiste/otrs/>.
+- customers should have a simple way of running OTOBO
+- avoid having the start: web server, database, daemon, redis, elasticsearch
+- prior art by <https://hub.docker.com/r/juanluisbaptiste/otrs/>
 - see [Installing using Docker and Docker Compose](https://doc.otobo.org/manual/installation/10.0/en/content/installation-docker.html)
 
 
 
-## Here is a quick runthrough.
+## A quick runthrough
 
 - Docker support for OTOBO is based on the official [Perl Docker](https://hub.docker.com/_/perl) image.
 - The base image is declared in [otobo.web.dockerfile](https://github.com/RotherOSS/otobo/blob/rel-10_0/otobo.web.dockerfile#L10).
@@ -153,7 +154,7 @@ and somewhere the environment variables and STDIN are set up
 - preforking actually is a requirement.
 
 
-## [CGI::Emulate::PSGI](https://metacpan.org/pod/CGI::Emulate::PSGI)
+## [CGI::Emulate::PSGI](https://metacpan.org/pod/CGI::Emulate::PSGI) does the heavy lifting
 
 - just about no code adaptions needed
 - add the wrapper in [otobo.psgi](https://github.com/RotherOSS/otobo/blob/rel-10_0/bin/psgi-bin/otobo.psgi#L509)
@@ -163,10 +164,11 @@ and somewhere the environment variables and STDIN are set up
 ## a persistent volume is required
 
 - the directory structure of _/opt/otobo_ is a bit intertwined
-- OTOBO packages are installed into the same directories as core OTOBO
-- even worse, packages may overwrite files in core OTOBO
-- cache files are also written in _/opt/otobo_
-- solved by using a [Docker volume](https://github.com/RotherOSS/otobo-docker/blob/rel-10_0/docker-compose/otobo-base.yml#L61) 
+- OTOBO packages are installed into _/opt/otobo_
+- even worse: files may be overwritten
+- cache files are also written into the same dir structure
+- solved by using a [Docker volume](https://github.com/RotherOSS/otobo-docker/blob/rel-10_0/docker-compose/otobo-base.yml#L61)
+- core files are copied from _/opt/otobo_install/otobo_next_
 
 
 
@@ -177,9 +179,45 @@ and somewhere the environment variables and STDIN are set up
 - wrapper scripts using **Modperl::Registry** as a fallback
 
 
+## Apache config
+
+    # everything is handled by the PSGI app
+    <Location />
+
+        # handle all requests, including the static content, with otobo.psgi
+        SetHandler          perl-script
+        PerlResponseHandler Plack::Handler::Apache2
+        PerlSetVar          psgi_app /opt/otobo/bin/psgi-bin/otobo.psgi
+
+        # Require is supported starting with Apache 2.4.
+        # No authentication and all requests are allowed.
+        Require all granted
+
+    </Location>
+
+
+## CGI-scrips as the fallback
+
+    # otobo.psgi looks primarily in $ENV{PATH_INFO}
+    local $ENV{PATH_INFO}   = join '/', grep { defined $_ && $_ ne '' } @ENV{qw(SCRIPT_NAME PATH_INFO)};
+    local $ENV{SCRIPT_NAME} = '';
+
+    my $CgiBinDir = dirname(__FILE__);
+    state $App = Plack::Util::load_psgi("$CgiBinDir/../psgi-bin/otobo.psgi");
+    Plack::Handler::CGI->new()->run($App);
+
+
+
+# Things to consider
+
+
+
 ## The Query Object
 
-The query parameters are no longer extracted from the environment variables. The PSGI `$Env` is used instead.
+- query parameters are no longer extracted from `%ENV`
+- the PSGI environment `$Env` is used instead
+
+See
 
     @@ -87,10 +109,22 @@ sub new {
          # max 5 MB posts
@@ -213,7 +251,7 @@ The query parameters are no longer extracted from the environment variables. The
 
 ## Environment
 
-- in OTOBO 10.0 there was direct access to environment variables
+eradicate direct access to environment variables
 
     @@ -106,11 +113,15 @@ sub ProviderProcessRequest {
              );
@@ -247,9 +285,10 @@ The query parameters are no longer extracted from the environment variables. The
 ## Reading from STDIN
 
 - no more reading from STDIN
-- in OTOBO 10.0 there were already fallbacks to using the query objects
-- so the reads from STDIN could be eliminated
+- could be removed because there were already fallbacks to using the query object
 - Do not consider only POSTDATA. PUT and PATCH are also relevant.
+
+See
 
     # The body supplied by POST, PUT, and PATCH has already been read in. This should be safe
     # as $CGI::POST_MAX has been set as an emergency brake.
@@ -259,12 +298,8 @@ The query parameters are no longer extracted from the environment variables. The
 
 ## Writing to STDOUT
 
-- pass back the content.
-
-
-## Exiting
-
-- throw an exception.
+- pass back the complete content
+- actually not a big change in OTOBO
 
 
 ## Setting headers
@@ -297,7 +332,26 @@ See:
 
 ## Exiting
 
-- Throw an exception
+Throw an exception
+
+    # The OTOBO response object already has the HTPP headers.
+    # Enhance it with the HTTP status code and the content.
+    my $ErrorResponse = Plack::Response->new(
+        200,
+        $Kernel::OM->Get('Kernel::System::Web::Response')->Headers(),
+        $Output
+    );
+
+    # The exception is caught be Plack::Middleware::HTTPExceptions
+    die Kernel::System::Web::Exception->new(
+        PlackResponse => $ErrorResponse
+    );
+
+
+... and catch it in a middleware.
+
+    # we might catch an instance of Kernel::System::Web::Exception
+    enable 'Plack::Middleware::HTTPExceptions';
 
 
 ## Long polling, Comet
@@ -335,6 +389,5 @@ See:
 - [Porting guidelines](https://github.com/bschmalhofer/otobo-ideas#psgi-stumbling-blocks)
 
 
-- [reveal.js](https://revealjs.com/)
-- [App::HTTPThis](https://metacpan.org/dist/App-HTTPThis)
-- [These slides](https://github.com/bschmalhofer/otobo-ideas/tree/master/GPW_2022)
+- Presentation with [reveal.js](https://revealjs.com/) and [App::HTTPThis](https://metacpan.org/dist/App-HTTPThis)
+- These slides are available at <https://github.com/bschmalhofer/otobo-ideas/tree/master/GPW_2022>
