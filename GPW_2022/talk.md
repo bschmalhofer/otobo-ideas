@@ -3,7 +3,7 @@
 ## Who am I ?
 
 - Bernhard Schmalhofer from Munich.pm
-- First dabbled with Perl in 1990 while studying physics
+- First dabbled with Perl in 1990 while studying physics in Regensburg and at the MPE
 - Some years in bioinformatics
 - Freelancing since 2008
 - Became involved with OTOBO in 2020
@@ -19,9 +19,9 @@
 - forked from OTRS in 2019 by Rother OSS
 - supports ITSM, that is IT Service Management
 
-## What is PSGI ?
+## What is [PSGI](https://metacpan.org/pod/PSGI) and [Plack](https://plackperl.org/) ?
 
-Interface for running Perl based application in many environments.
+PSGI is an interface for running Perl based application in many environments. Plack is the reference implementation.
 
 ## Meet the Team
 
