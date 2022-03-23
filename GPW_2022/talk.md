@@ -302,6 +302,13 @@ See
 - actually not a big change in OTOBO
 
 
+## Long polling, Comet
+
+- is not relevant for OTOBO
+- could be implemented by returning a sub in the PSGI response
+- this approach is planned to be used for delivering attachments
+
+
 ## Setting headers
 
 - collect the headers in the response object
@@ -354,11 +361,26 @@ Throw an exception
     enable 'Plack::Middleware::HTTPExceptions';
 
 
-## Long polling, Comet
+## Global varibles per Request
 
-- is not relevant for OTOBO
-- could be implemented by returning a sub in the PSGI response
-- this approach is planned to be used for delivering attachments
+- (too) heavily used by OTOBO
+- Event handling depends on the destruction of objects at the end of a request
+- yet another middleware
+
+otobo.psgi
+
+    my $ManageObjectsMiddleware = sub {
+        my $App = shift;
+
+        return sub {
+            my $Env = shift;
+
+            # make sure that the managed objects will be recreated for the current request
+            local $Kernel::OM = Kernel::System::ObjectManager->new();
+
+            return $App->($Env);
+        };
+    };
 
 
 ## Encoding
