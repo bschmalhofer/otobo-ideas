@@ -1,9 +1,15 @@
-# Introduction
+**OTOBO - migrating from CGI to PSGI**
+
+Bernhard Schmalhofer
+
+German Perl/Raku Workshop conference 2022 in Leipzig
+
+
 
 ## Who am I ?
 
 - Bernhard Schmalhofer from Munich.pm
-- First dabbled with Perl in 1990 while studying physics in Regensburg and at the MPE
+- Started with Perl in the 1990s when studying physics
 - Some years in bioinformatics
 - Freelancing since 2008
 - Became involved with OTOBO in 2020
@@ -12,24 +18,26 @@
 
 ## What is this talk about ?
 
-- Advertising: Tell people about the success story OTOBO
-- Share findings from modernizing an application with a long history
+- Tell people about a Perl success story
+- Share experiences from modernizing a CGI-based web application
 
 
 
 ## What is OTOBO ?
 
-- an open source web based ticketing system, where ticketing refers to help desk, not to concerts
-- forked from OTRS in 2019 by Rother OSS
-- supports ITSM, that is IT Service Management
-- see the [demo](https://demo.otobo.org/otobo/index.pl) with login Lena/Lena
+- An open source web based ticketing system
+- Where ticketing refers to help desk, not to concerts
+- Forked from OTRS in 2019 by Rother OSS
+- Supports for IT Service Management, ITSM
+- Demo at <https://demo.otobo.org/otobo/index.pl>. Log in as Lena/Lena.
 
 
 
 ## What is [PSGI](https://metacpan.org/pod/PSGI) and [Plack](https://plackperl.org/) ?
 
 - PSGI is an interface for running Perl based application in many environments
-- Plack is the reference implementation.
+- Plack is the reference implementation
+- The OTOBO PSGI support is based on basic Plack
 
 
 
@@ -48,19 +56,18 @@ Harry
 
 ## Timeline
 
-- 2001: OTRS started by Martin Edenhofer
-- 2003: OTRS 1.0
-- 2003 - 2021: ... many OTRS releases and enhancements
-- 2004: Stefan Rother become the first employee of the OTRS GmbH
-- 2011: Rother OSS founded by Stefan Rother
+- 2001: OTRS is started by Martin Edenhofer
+- 2003: OTRS 1.0 released, OTRS GmbH founded
+- 2007: OTRS GmbH becomes the OTRS AG
+- 2011: Rother OSS GmbH founded by Stefan Rother, first employee of OTRS GmbH
 - 2017: OTRS 6.0 was released, the basis for OTOBO
+- 2018: The open source release is rebranded as _((OTRS)) Community Edition_.
 
 
-- 2018: OTRS AG was founded. The open source release was rebranded as _((OTRS)) Community Edition_.
 - 2019: Rother OSS forks OTOBO from _((OTRS)) Community Edition_. Development by Stefan and Sven.
 - 2020-01-30: OTOBO 10.0.0 Beta 1
-- 2020-07-13: OTOBO 10.0.1 with Docker support. First part of this talk
-- 2022-03-02: OTOBO 10.1.1 with PSGI everywhere. Second part of this talk
+- 2020-07-13: OTOBO 10.0.1 with Docker support. First part of this talk.
+- 2022-03-02: OTOBO 10.1.1 with PSGI everywhere. Second part of this talk.
 
 
 
@@ -73,9 +80,9 @@ Harry
 - in between a lot of interface modules, not really a framework
 
 
-## Excursion 1: [ModPerl::Registry](https://metacpan.org/dist/mod_perl/view/docs/api/ModPerl/Registry.pod)
+## Excursion 1
 
-ModPerl::Registry takes a CGI-script
+[ModPerl::Registry](https://metacpan.org/dist/mod_perl/view/docs/api/ModPerl/Registry.pod) takes a CGI-script
 
     #!/usr/bin/env perl
     use v5.30;
