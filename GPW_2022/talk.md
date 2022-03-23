@@ -8,39 +8,61 @@
 - Freelancing since 2008
 - Became involved with OTOBO in 2020
 
+
+
 ## What is this talk about ?
 
 - Advertising: Tell people about the success story OTOBO
 - Share findings from modernizing an application with a long history
+
+
 
 ## What is OTOBO ?
 
 - an open source web based ticketing system, where ticketing refers to help desk, not to concerts
 - forked from OTRS in 2019 by Rother OSS
 - supports ITSM, that is IT Service Management
+- see the [demo](https://demo.otobo.org/otobo/index.pl) with login Lena/Lena
+
+
 
 ## What is [PSGI](https://metacpan.org/pod/PSGI) and [Plack](https://plackperl.org/) ?
 
-PSGI is an interface for running Perl based application in many environments. Plack is the reference implementation.
+- PSGI is an interface for running Perl based application in many environments
+- Plack is the reference implementation.
+
+
 
 ## Meet the Team
 
+Grit, Stefan, and Sven
+
 ![Rother OSS people](https://rother-oss.com/wp-content/uploads/2020/05/Header-rother-OSS-experten-fuer-die-otrs-community-edition-1500x630.jpg)
+
+
+
+Harry
+
 ![Meet Harry](https://otobo.de/wp-content/uploads/2020/07/OTOBO-Login-495x400.png)
+
+
 
 ## Timeline
 
 - 2001: OTRS started by Martin Edenhofer
 - 2003: OTRS 1.0
-- 2004 Stefan Rother become the first employee of the OTRS GmbH
-- ... many releases and enhancement
+- 2003 - 2021: ... many OTRS releases and enhancements
+- 2004: Stefan Rother become the first employee of the OTRS GmbH
 - 2011: Rother OSS founded by Stefan Rother
-- 2017: OTRS 6.0
-- 2018: OTRS AG rebrands the open source release as _((OTRS)) Community Edition_
+- 2017: OTRS 6.0 was released, the basis for OTOBO
+
+
+- 2018: OTRS AG was founded. The open source release was rebranded as _((OTRS)) Community Edition_.
 - 2019: Rother OSS forks OTOBO from _((OTRS)) Community Edition_. Development by Stefan and Sven.
 - 2020-01-30: OTOBO 10.0.0 Beta 1
-- 2020-07-13: OTOBO 10.0.1 with Docker support: first part of this talk
-- 2022-03-02: OTOBO 10.1.1 with PSGI everywhere: second part of this talk
+- 2020-07-13: OTOBO 10.0.1 with Docker support. First part of this talk
+- 2022-03-02: OTOBO 10.1.1 with PSGI everywhere. Second part of this talk
+
 
 # The Traditional Architecture OTOBO 10.0
 
@@ -50,7 +72,11 @@ PSGI is an interface for running Perl based application in many environments. Pl
 - Template Toolkit in the frontend
 - in between a lot of interface modules, not really a framework
 
+
+
 ## Excursion 1: mod_perl and [ModPerl::Registry](modperl_registry.md)
+
+
 
 # OTOBO 10.0 under Docker with PSGI
 
@@ -58,11 +84,15 @@ The initial requirement was that customers have a simple way of running OTOBO. I
 
 ## Excursion2: [Docker Support](docker_10_0.md)
 
+
+
 # OTOBO 10.1 The real thing
 
 - using the Plack App **otobo.psgi** in all scenarios
 - Plack::Handler::Apache2 when running under Apache
 - wrapper scripts using **Modperl::Registry** as a fallback
+
+
 
 ## The Query Object
 
@@ -71,7 +101,7 @@ The query parameters are no longer extracted from the environment variables. The
     @@ -87,10 +109,22 @@ sub new {
          # max 5 MB posts
          $CGI::POST_MAX = $ConfigObject->Get('WebMaxFileUpload') || 1024 * 1024 * 5;
-     
+
     -    # The query is usually constructed from the CGI relevant environment variables, e.g. QUERY_STRING,
     -    # and from reading STDIN.
     -    # In specific cases, e.g. test scripts, a already prepared query object can be passed in.
@@ -92,43 +122,46 @@ The query parameters are no longer extracted from the environment variables. The
     +    else {
     +        $Self->{Query} = CGI->new('');
     +    }
-     
+
          return $Self;
      }
     @@ -130,9 +164,11 @@ sub GetParam {
 
 
-## Environment 
+
+## Environment
 
 In OTOBO 10.0 there was direct access to environment variables.
 
     @@ -106,11 +113,15 @@ sub ProviderProcessRequest {
              );
          }
-     
+
     +    # The HTTP::REST support works with a request object.
     +    # Just like Kernel::System::Web::InterfaceAgent.
     +    my $ParamObject = $Kernel::OM->Get('Kernel::System::Web::Request');
     +
          my $EncodeObject = $Kernel::OM->Get('Kernel::System::Encode');
-     
+
          my $Operation;
          my %URIData;
     -    my $RequestURI = $ENV{REQUEST_URI};
     +    my $RequestURI = $ParamObject->RequestURI();
          $RequestURI =~ s{.*Webservice(?:ID)?\/[^\/]+(\/.*)$}{$1}xms;
-     
+
          # Remove any query parameter from the URL
     @@ -161,7 +172,7 @@ sub ProviderProcessRequest {
              }
          }
-     
+
     -    my $RequestMethod = $ENV{'REQUEST_METHOD'} || 'GET';
     +    my $RequestMethod = $ParamObject->RequestMethod() || 'GET';
          ROUTE:
          for my $CurrentOperation ( sort keys %{ $Config->{RouteOperationMapping} } ) {
-     
+
     @@ -223,7 +234,11 @@ sub ProviderProcessRequest {
+
+
 
 ## Reading from STDIN
 
@@ -140,7 +173,19 @@ so the reads from STDIN could be removed. Take care to consider not only POSTDAT
     # For Checking the length we can therefor use the actual length.
     my $Content = $ParamObject->GetParam( Param => uc($RequestMethod) . 'DATA' );
 
+
+
 ## Writing to STDOUT
+
+Pass back the content.
+
+
+
+## Exiting
+
+Throw an exception.
+
+
 
 ## Setting headers
 
@@ -149,8 +194,8 @@ Collect the headers in the response object and attach the content later. `Plack:
     @@ -4245,13 +4330,16 @@ sub CustomerHeader {
              $Param{ColorDefinitions} .= "--col$Color:$ColorDefinitions->{ $Color };";
          }
-     
-    +    $Self->_AddHeadersToResponseObject(
+    
+    +    $Self->\_AddHeadersToResponseObject(
     +        ContentDisposition            => $Param{ContentDisposition},
     +        DisableIFrameOriginRestricted => $Param{DisableIFrameOriginRestricted},
     +    );
@@ -164,21 +209,39 @@ Collect the headers in the response object and attach the content later. `Plack:
     -
     -    return $Output;
      }
-     
+
+
+
+## Exiting
+
+Throw an exception
+
+
+
+
 ## Long polling, Comet
 
-Long polling was not relevant for OTOBO. It could be implemented by returning a long running subroutine in the PSGI response. This approach is planned to be used for delivering attachments in OTOBO.
+- is not relevant for OTOBO
+- could be implemented by returning a sub in the PSGI response
+- this approach is planned to be used for delivering attachments
+
+
 
 ## Encoding
 
-Decoding and encoding is still done incorrectly.
+- decoding and encoding is still done in a bad way
+- ... but it works
+
+
 
 # Yes, we are hiring
 
 - [OTOBO Jobs](https://otobo.de/de/jobs/)
 - [OTOBO Community](https://otobo.de/de/community/)
 
-# Sources
+
+
+# Resources
 
 - [OTOBO](https://otobo.de/de/community/)
 - [OTRS on Wikipedia](https://de.wikipedia.org/wiki/OTRS)
@@ -186,4 +249,5 @@ Decoding and encoding is still done incorrectly.
 - [OTRS under Docker](https://hub.docker.com/r/juanluisbaptiste/otrs/)
 - [Fron CGI to PSGI](https://perlmaven.com/from-cgi-to-psgi-and-starman)
 - [Porting guidelines](https://github.com/bschmalhofer/otobo-ideas#psgi-stumbling-blocks)
-
+- [reveal.js](https://revealjs.com/)
+- [These slides](https://github.com/bschmalhofer/otobo-ideas/tree/master/GPW_2022)

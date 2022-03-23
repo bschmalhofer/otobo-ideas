@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>OTOBO - from CGI to PSGI</title>
+
+		<link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js-master/dist/theme/white.css" id="theme">
+
+        <link rel="stylesheet" href="reveal.js-master/plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+                <!-- Use external markdown resource, separate slides by three newlines; vertical slides by two newlines -->
+                <section data-markdown="talk.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+
+
+            </div>
+		</div>
+
+		<script src="reveal.js-master/dist/reveal.js"></script>
+        <script src="reveal.js-master/plugin/markdown/markdown.js"></script>
+        <script src="reveal.js-master/plugin/highlight/highlight.js"></script>
+        <script src="reveal.js-master/plugin/notes/notes.js"></script>
+        <script src="reveal.js-master/plugin/math/math.js"></script>
+
+		<script>
+
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+			});
+
+		</script>
+
+	</body>
+</html>
