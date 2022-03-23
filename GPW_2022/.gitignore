@@ -1,0 +1,8 @@
+# Editor swap files
+*.swn
+*.swp
+*.swo
+*~
+
+# presentation frameword
+reveal.js-master
