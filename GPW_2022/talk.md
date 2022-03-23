@@ -63,7 +63,8 @@ Harry
 - 2022-03-02: OTOBO 10.1.1 with PSGI everywhere. Second part of this talk
 
 
-# The Traditional Architecture OTOBO 10.0
+
+# traditional OTOBO 10.0
 
 - Apache 2.4 with **mpm_prefork** and **mod_perl**
 - CGI scripts running under `ModPerl::Registry`
@@ -72,16 +73,93 @@ Harry
 - in between a lot of interface modules, not really a framework
 
 
+## Excursion 1: [ModPerl::Registry](https://metacpan.org/dist/mod_perl/view/docs/api/ModPerl/Registry.pod)
 
-## Excursion 1: mod_perl and [ModPerl::Registry](modperl_registry.md)
+ModPerl::Registry takes a CGI-script
+
+    #!/usr/bin/env perl
+    use v5.30;
+
+    use CGI;
+
+    my $cgi = CGI->new;
+
+    print
+        $cgi->header(
+            -type       => 'text/html',
+            -charset    => 'utf-8',
+        ),
+        '<h1>Hallo 🌍!</h1>';
+
+
+and turns it into an mod\_perl request handler
+
+    package ModPerl::ROOT::ModPerl::Registry::opt_otobo_bin_cgi_2dbin_hallo_welt_2epl;
+    sub handler {local $0 = '/opt/otobo/bin/cgi-bin/hallo_welt.pl';
+    #line 1 /opt/otobo/bin/cgi-bin/hallo_welt.pl
+    #!/usr/bin/env perl
+
+    use v5.30;
+
+    use CGI;
+
+    my $cgi = CGI->new;
+    print
+        $cgi->header(
+            -type       => 'text/html',
+            -charset    => 'utf-8',
+        ),
+        '<h1>Hallo 🌍!</h1>';
+    }
+
+
+and somewhere the environment variables and STDIN are set up
 
 
 
 # OTOBO 10.0 under Docker with PSGI
 
-The initial requirement was that customers have a simple way of running OTOBO. Inspired by <https://hub.docker.com/r/juanluisbaptiste/otrs/>.
+- initial requirement was that customers have a simple way of running OTOBO
+- prior art by <https://hub.docker.com/r/juanluisbaptiste/otrs/>.
+- see [Installing using Docker and Docker Compose](https://doc.otobo.org/manual/installation/10.0/en/content/installation-docker.html)
 
-## Excursion2: [Docker Support](docker_10_0.md)
+
+
+## Here is a quick runthrough.
+
+- Docker support for OTOBO is based on the official [Perl Docker](https://hub.docker.com/_/perl) image.
+- The base image is declared in [otobo.web.dockerfile](https://github.com/RotherOSS/otobo/blob/rel-10_0/otobo.web.dockerfile#L10).
+- Starting a Docker container runs [entrypoint.sh](https://github.com/RotherOSS/otobo/blob/rel-10_0/bin/docker/entrypoint.sh#L114).
+- **plackup** uses [otobo.psgi](https://github.com/RotherOSS/otobo/blob/rel-10_0/bin/psgi-bin/otobo.psgi#L638).
+- Orchestration is done with Docker compose.
+
+
+## Why Plack and not *your favorite framework* ?
+
+- there was no apparent immediate benefit 
+- the required changes should be kept to a minimum.
+
+
+## Why [Gazelle](https://metacpan.org/pod/Gazelle) ?
+
+- advertised as "a Preforked Plack Handler for performance freaks"
+- preforking actually is a requirement.
+
+
+## [CGI::Emulate::PSGI](https://metacpan.org/pod/CGI::Emulate::PSGI)
+
+- just about no code adaptions needed
+- add the wrapper in [otobo.psgi](https://github.com/RotherOSS/otobo/blob/rel-10_0/bin/psgi-bin/otobo.psgi#L509)
+- then the [venerable CGI.pm](https://github.com/RotherOSS/otobo/blob/rel-10_0/Kernel/System/Web/Request.pm#L93) can kick in.
+
+
+## a persistent volume is required
+
+- the directory structure of _/opt/otobo_ is a bit intertwined
+- OTOBO packages are installed into the same directories as core OTOBO
+- even worse, packages may overwrite files in core OTOBO
+- cache files are also written in _/opt/otobo_
+- solved by using a [Docker volume](https://github.com/RotherOSS/otobo-docker/blob/rel-10_0/docker-compose/otobo-base.yml#L61) 
 
 
 
@@ -90,7 +168,6 @@ The initial requirement was that customers have a simple way of running OTOBO. I
 - using the Plack App **otobo.psgi** in all scenarios
 - Plack::Handler::Apache2 when running under Apache
 - wrapper scripts using **Modperl::Registry** as a fallback
-
 
 
 ## The Query Object
@@ -127,10 +204,9 @@ The query parameters are no longer extracted from the environment variables. The
     @@ -130,9 +164,11 @@ sub GetParam {
 
 
-
 ## Environment
 
-In OTOBO 10.0 there was direct access to environment variables.
+- in OTOBO 10.0 there was direct access to environment variables
 
     @@ -106,11 +113,15 @@ sub ProviderProcessRequest {
              );
@@ -161,11 +237,12 @@ In OTOBO 10.0 there was direct access to environment variables.
     @@ -223,7 +234,11 @@ sub ProviderProcessRequest {
 
 
-
 ## Reading from STDIN
 
-Direct reading from STDIN no longer works. In OTOBO 10.0 there were already fallbacks to using the query objects,
-so the reads from STDIN could be removed. Take care to consider not only POSTDATA. PUT and PATCH are also relevant.
+- no more reading from STDIN
+- in OTOBO 10.0 there were already fallbacks to using the query objects
+- so the reads from STDIN could be eliminated
+- Do not consider only POSTDATA. PUT and PATCH are also relevant.
 
     # The body supplied by POST, PUT, and PATCH has already been read in. This should be safe
     # as $CGI::POST_MAX has been set as an emergency brake.
@@ -173,27 +250,28 @@ so the reads from STDIN could be removed. Take care to consider not only POSTDAT
     my $Content = $ParamObject->GetParam( Param => uc($RequestMethod) . 'DATA' );
 
 
-
 ## Writing to STDOUT
 
-Pass back the content.
-
+- pass back the content.
 
 
 ## Exiting
 
-Throw an exception.
-
+- throw an exception.
 
 
 ## Setting headers
 
-Collect the headers in the response object and attach the content later. `Plack::Response::finalize()` does the job.
+- collect the headers in the response object
+- attach the content later
+- finally call `Plack::Response::finalize()`
+
+See:
 
     @@ -4245,13 +4330,16 @@ sub CustomerHeader {
              $Param{ColorDefinitions} .= "--col$Color:$ColorDefinitions->{ $Color };";
          }
-    
+
     +    $Self->\_AddHeadersToResponseObject(
     +        ContentDisposition            => $Param{ContentDisposition},
     +        DisableIFrameOriginRestricted => $Param{DisableIFrameOriginRestricted},
@@ -210,12 +288,9 @@ Collect the headers in the response object and attach the content later. `Plack:
      }
 
 
-
 ## Exiting
 
-Throw an exception
-
-
+- Throw an exception
 
 
 ## Long polling, Comet
@@ -225,7 +300,6 @@ Throw an exception
 - this approach is planned to be used for delivering attachments
 
 
-
 ## Encoding
 
 - decoding and encoding is still done in a bad way
@@ -233,7 +307,11 @@ Throw an exception
 
 
 
-# Yes, we are hiring
+# That's it
+
+
+
+# And yes, we are hiring
 
 - [OTOBO Jobs](https://otobo.de/de/jobs/)
 - [OTOBO Community](https://otobo.de/de/community/)
@@ -248,7 +326,8 @@ Throw an exception
 - [OTRS under Docker](https://hub.docker.com/r/juanluisbaptiste/otrs/)
 - [Fron CGI to PSGI](https://perlmaven.com/from-cgi-to-psgi-and-starman)
 - [Porting guidelines](https://github.com/bschmalhofer/otobo-ideas#psgi-stumbling-blocks)
+
+
 - [reveal.js](https://revealjs.com/)
 - [App::HTTPThis](https://metacpan.org/dist/App-HTTPThis)
-
 - [These slides](https://github.com/bschmalhofer/otobo-ideas/tree/master/GPW_2022)
