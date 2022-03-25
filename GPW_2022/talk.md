@@ -226,7 +226,7 @@ Harry
 - query parameters are no longer extracted from `%ENV`
 - the PSGI environment `$Env` is used instead
 
-See
+Kernel/System/Web/Request.pm:
 
     @@ -87,10 +109,22 @@ sub new {
          # max 5 MB posts
@@ -297,7 +297,7 @@ eradicate direct access to environment variables
 - could be removed because there were already fallbacks to using the query object
 - Do not consider only POSTDATA. PUT and PATCH are also relevant.
 
-See
+Kernel/GenericInterface/Transport/HTTP/REST.pm:
 
     # The body supplied by POST, PUT, and PATCH has already been read in. This should be safe
     # as $CGI::POST_MAX has been set as an emergency brake.
@@ -324,7 +324,7 @@ See
 - attach the content later
 - finally call `Plack::Response::finalize()`
 
-See:
+Kernel/Output/HTML/Layout.pm:
 
     @@ -4245,13 +4330,16 @@ sub CustomerHeader {
              $Param{ColorDefinitions} .= "--col$Color:$ColorDefinitions->{ $Color };";
@@ -370,13 +370,13 @@ Throw an exception
     enable 'Plack::Middleware::HTTPExceptions';
 
 
-## Global varibles per Request
+## Global variables per Request
 
 - (too) heavily used by OTOBO
 - Event handling depends on the destruction of objects at the end of a request
 - yet another middleware
 
-otobo.psgi
+otobo.psgi:
 
     my $ManageObjectsMiddleware = sub {
         my $App = shift;
