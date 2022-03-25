@@ -416,7 +416,7 @@ otobo.psgi
 - [OTRS on Wikipedia](https://de.wikipedia.org/wiki/OTRS)
 - [OTOBO on Github](https://github.com/RotherOSS/otobo)
 - [OTOBO Design](https://www.sanmiguel.io/de/projekte/ux-ui-muenchen/otobo-userinterface-design)
-- [OTRS under Docker](https://hub.docker.com/r/juanluisbaptiste/otrs/)
+- [Znuny under Docker](https://hub.docker.com/r/juanluisbaptiste/otrs/)
 - [From CGI to PSGI](https://perlmaven.com/from-cgi-to-psgi-and-starman)
 - [Porting guidelines](https://github.com/bschmalhofer/otobo-ideas#psgi-stumbling-blocks)
 
