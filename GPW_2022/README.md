@@ -5,4 +5,10 @@ How to present:
 - put the dir _reveal.js-master_ into this dir
 - run `sudo cpanm App::HTTPThis`
 - run ` http_this --port 9001`in this dir
-- open <http://localhost:9001/talk.html#/> in browser 
+- open <http://localhost:9001/talk.html#/> in browser
+
+How to edit:
+
+- talk.md is basic markdown
+- three empty lines created a horizontal slide, the main line
+- two empty lines create a vertical slide, the excursions
