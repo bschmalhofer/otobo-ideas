@@ -4,13 +4,15 @@ Bernhard Schmalhofer
 
 German Perl/Raku Workshop conference 2022 in Leipzig
 
+Work on OTOBO sponsored by Rother OSS
+
 
 
 ## Who am I ?
 
 - Bernhard Schmalhofer from Munich.pm
-- Started with Perl in the 1990s when studying physics
-- Some years in bioinformatics
+- Started with Perl in 1990s when studying physics
+- Some years in bioinformatics in 2000s
 - Freelancing since 2008
 - Became involved with OTOBO in 2020
 
@@ -18,7 +20,7 @@ German Perl/Raku Workshop conference 2022 in Leipzig
 
 ## What is this talk about ?
 
-- Tell people about a Perl success story
+- Marketing: OTOBO is a Perl success story
 - Share experiences from modernizing a CGI-based web application
 
 
@@ -27,8 +29,8 @@ German Perl/Raku Workshop conference 2022 in Leipzig
 
 - An open source web based ticketing system
 - Where ticketing refers to help desk, not to concerts
+- Supports IT Service Management, ITSM
 - Forked from OTRS in 2019 by Rother OSS
-- Supports for IT Service Management, ITSM
 - Demo at <https://demo.otobo.org/otobo/index.pl>. Log in as Lena/Lena.
 
 
@@ -37,7 +39,7 @@ German Perl/Raku Workshop conference 2022 in Leipzig
 
 - PSGI is an interface for running Perl based application in many environments
 - Plack is the reference implementation
-- The OTOBO PSGI support is based on basic Plack
+- OTOBO is based on basic Plack
 
 
 
@@ -56,12 +58,12 @@ Harry
 
 ## Timeline
 
-- 2001: OTRS is started by Martin Edenhofer
+- 2001: OTRS started by Martin Edenhofer
 - 2003: OTRS 1.0 released, OTRS GmbH founded
 - 2007: OTRS GmbH becomes the OTRS AG
 - 2011: Rother OSS GmbH founded by Stefan Rother, first employee of OTRS GmbH
 - 2017: OTRS 6.0 was released, the basis for OTOBO
-- 2018: The open source release is rebranded as _((OTRS)) Community Edition_.
+- 2018: Rebranding as _((OTRS)) Community Edition_ and _OTRS_
 
 
 - 2019: Rother OSS forks OTOBO from _((OTRS)) Community Edition_. Development by Stefan and Sven.
@@ -74,7 +76,7 @@ Harry
 # traditional OTOBO 10.0
 
 - Apache 2.4 with **mpm_prefork** and **mod_perl**
-- CGI scripts running under `ModPerl::Registry`
+- CGI scripts running under the handler [ModPerl::Registry](https://metacpan.org/dist/mod_perl/view/docs/api/ModPerl/Registry.pod)
 - relational database in the backend
 - Template Toolkit in the frontend
 - in between a lot of interface modules, not really a framework
@@ -124,12 +126,17 @@ Harry
 
 
 
-# OTOBO 10.0 under Docker with PSGI
+# OTOBO 10.0 in Docker
 
-- customers should have a simple way of running OTOBO
-- avoid having the start: web server, database, daemon, redis, elasticsearch
+- a simple way of running OTOBO
+- with Gazelle running PSGI
+- .. and database, daemon, redis, elasticsearch
 - prior art by <https://hub.docker.com/r/juanluisbaptiste/otrs/>
 - see [Installing using Docker and Docker Compose](https://doc.otobo.org/manual/installation/10.0/en/content/installation-docker.html)
+
+
+
+... traditional setup is still supported
 
 
 
@@ -138,20 +145,22 @@ Harry
 - Docker support for OTOBO is based on the official [Perl Docker](https://hub.docker.com/_/perl) image.
 - The base image is declared in [otobo.web.dockerfile](https://github.com/RotherOSS/otobo/blob/rel-10_0/otobo.web.dockerfile#L10).
 - Starting a Docker container runs [entrypoint.sh](https://github.com/RotherOSS/otobo/blob/rel-10_0/bin/docker/entrypoint.sh#L114).
-- **plackup** uses [otobo.psgi](https://github.com/RotherOSS/otobo/blob/rel-10_0/bin/psgi-bin/otobo.psgi#L638).
+- **plackup** serves [otobo.psgi](https://github.com/RotherOSS/otobo/blob/rel-10_0/bin/psgi-bin/otobo.psgi#L638).
 - Orchestration is done with Docker compose.
 
 
 ## Why Plack and not *your favorite framework* ?
 
-- there was no apparent immediate benefit 
+- there was no apparent immediate benefit
+- impedance mismatch
 - the required changes should be kept to a minimum.
 
 
 ## Why [Gazelle](https://metacpan.org/pod/Gazelle) ?
 
+- no special reason
 - advertised as "a Preforked Plack Handler for performance freaks"
-- preforking actually is a requirement.
+- actually, preforking is a requirement.
 
 
 ## [CGI::Emulate::PSGI](https://metacpan.org/pod/CGI::Emulate::PSGI) does the heavy lifting
@@ -172,7 +181,7 @@ Harry
 
 
 
-# OTOBO 10.1 The real thing
+# OTOBO 10.1: The real thing
 
 - using the Plack App **otobo.psgi** in all scenarios
 - Plack::Handler::Apache2 when running under Apache
@@ -406,6 +415,7 @@ otobo.psgi
 - [OTOBO](https://otobo.de/de/community/)
 - [OTRS on Wikipedia](https://de.wikipedia.org/wiki/OTRS)
 - [OTOBO on Github](https://github.com/RotherOSS/otobo)
+- [OTOBO Design](https://www.sanmiguel.io/de/projekte/ux-ui-muenchen/otobo-userinterface-design)
 - [OTRS under Docker](https://hub.docker.com/r/juanluisbaptiste/otrs/)
 - [Fron CGI to PSGI](https://perlmaven.com/from-cgi-to-psgi-and-starman)
 - [Porting guidelines](https://github.com/bschmalhofer/otobo-ideas#psgi-stumbling-blocks)
