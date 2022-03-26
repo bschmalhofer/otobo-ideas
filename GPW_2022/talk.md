@@ -18,16 +18,16 @@ Work on OTOBO sponsored by Rother OSS
 
 
 
-## What is this talk about ?
+## What is this about ?
 
 - Marketing: OTOBO is a Perl success story
 - Share experiences from modernizing a CGI-based web application
 
 
 
-## What is OTOBO ?
+## What is ![OTOBO Marke](https://otobo.de/wp-content/uploads/2019/12/Otobo_Wortmarke_Sub_Digital_Blau_RGB-300x130.png) ?
 
-- An open source web based helpdesk
+- [OTOBO](https://otobo.de/de/faq/#toggle-id-1) is an open source web based helpdesk
 - From ticketing to complete IT Service Management
 - Forked from OTRS in 2019 by Rother OSS
 - Agent demo at <https://demo.otobo.org/otobo/index.pl>. Log in as Lena/Lena.
