@@ -73,7 +73,7 @@ Harry
 
 
 
-# traditional OTOBO 10.0
+## traditional OTOBO 10.0
 
 - Apache 2.4 with **mpm_prefork** and **mod_perl**
 - CGI scripts running under the handler [ModPerl::Registry](https://metacpan.org/dist/mod_perl/view/docs/api/ModPerl/Registry.pod)
@@ -126,7 +126,7 @@ Harry
 
 
 
-# OTOBO 10.0 in Docker
+## OTOBO 10.0 in Docker
 
 - a simple way of running OTOBO
 - with Gazelle running PSGI
@@ -181,7 +181,7 @@ Harry
 
 
 
-# OTOBO 10.1: The real thing
+## OTOBO 10.1: The real thing
 
 - using the Plack App **otobo.psgi** in all scenarios
 - Plack::Handler::Apache2 when running under Apache
@@ -217,7 +217,7 @@ Harry
 
 
 
-# Things to consider
+## Things to consider
 
 
 
@@ -424,12 +424,14 @@ otobo.psgi:
 
 # And yes, we are hiring
 
+![OTOBO Marke](https://otobo.de/wp-content/uploads/2019/12/Otobo_Wortmarke_Sub_Digital_Blau_RGB-300x130.png)
+
 - [OTOBO Jobs](https://otobo.de/de/jobs/)
 - [OTOBO Community](https://otobo.de/de/community/)
 
 
 
-# Resources
+## Resources
 
 - [OTOBO](https://otobo.de/de/community/)
 - [OTRS on Wikipedia](https://de.wikipedia.org/wiki/OTRS)
@@ -439,6 +441,8 @@ otobo.psgi:
 - [From CGI to PSGI](https://perlmaven.com/from-cgi-to-psgi-and-starman)
 - [Porting guidelines](https://github.com/bschmalhofer/otobo-ideas#psgi-stumbling-blocks)
 
+
+![OTOBO Marke](https://otobo.de/wp-content/uploads/2019/12/Otobo_Wortmarke_Sub_Digital_Blau_RGB-300x130.png)
 
 - Presentation with [reveal.js](https://revealjs.com/) and [App::HTTPThis](https://metacpan.org/dist/App-HTTPThis)
 - These slides are available at <https://github.com/bschmalhofer/otobo-ideas/tree/master/GPW_2022>
