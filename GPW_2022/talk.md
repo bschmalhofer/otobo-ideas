@@ -291,6 +291,25 @@ eradicate direct access to environment variables
     @@ -223,7 +234,11 @@ sub ProviderProcessRequest {
 
 
+... but `$ENV{GATEWAY_INTERFACE}` is still needed
+
+    my $SetSystemEnvMiddleware = sub {
+        my $App = shift;
+
+        return sub {
+            my $Env = shift;
+
+            # only the side effects are important
+            local $ENV{GATEWAY_INTERFACE} = 'CGI/1.1';
+
+            # enable for debugging UrlMap
+            #local $ENV{PLACK_URLMAP_DEBUG} = 1;
+
+            return $App->($Env);
+        };
+    };
+
+
 ## Reading from STDIN
 
 - no more reading from STDIN
