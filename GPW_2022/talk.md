@@ -30,8 +30,8 @@ Work on OTOBO sponsored by Rother OSS
 - [OTOBO](https://otobo.de/de/faq/#toggle-id-1) is an open source web based helpdesk
 - From ticketing to complete IT Service Management
 - Forked from OTRS in 2019 by Rother OSS
-- Agent demo at <https://demo.otobo.org/otobo/index.pl>. Log in as Lena/Lena.
-- Customer demo at <https://demo.otobo.org/otobo/customer.pl>. Log in as Felix/Felix.
+- Agent demo at <https://demo.otobo.org/otobo/index.pl>. Log in as Lena/Lena
+- Customer demo at <https://demo.otobo.org/otobo/customer.pl>. Log in as Felix/Felix
 
 
 
@@ -128,7 +128,7 @@ Harry
 
 ## OTOBO 10.0 in Docker
 
-- a simple way of running OTOBO
+- we want a simple way of running OTOBO
 - with Gazelle running PSGI
 - .. and database, daemon, redis, elasticsearch
 - prior art by <https://hub.docker.com/r/juanluisbaptiste/otrs/>
@@ -142,10 +142,10 @@ Harry
 
 ## A quick runthrough
 
-- Docker support for OTOBO is based on the official [Perl Docker](https://hub.docker.com/_/perl) image.
-- The base image is declared in [otobo.web.dockerfile](https://github.com/RotherOSS/otobo/blob/rel-10_0/otobo.web.dockerfile#L10).
-- Starting a Docker container runs [entrypoint.sh](https://github.com/RotherOSS/otobo/blob/rel-10_0/bin/docker/entrypoint.sh#L114).
-- **plackup** serves [otobo.psgi](https://github.com/RotherOSS/otobo/blob/rel-10_0/bin/psgi-bin/otobo.psgi#L638).
+- Docker support for OTOBO is based on the official [Perl Docker](https://hub.docker.com/_/perl) image
+- The base image is declared in [otobo.web.dockerfile](https://github.com/RotherOSS/otobo/blob/rel-10_0/otobo.web.dockerfile#L10)
+- Starting a Docker container runs [entrypoint.sh](https://github.com/RotherOSS/otobo/blob/rel-10_0/bin/docker/entrypoint.sh#L114)
+- **plackup** serves [otobo.psgi](https://github.com/RotherOSS/otobo/blob/rel-10_0/bin/psgi-bin/otobo.psgi#L638)
 - Orchestration is done with Docker compose.
 
 
@@ -158,9 +158,9 @@ Harry
 
 ## Why [Gazelle](https://metacpan.org/pod/Gazelle) ?
 
-- no special reason
+- preforking is a requirement
+- no special reason, Starman works as well
 - advertised as "a Preforked Plack Handler for performance freaks"
-- actually, preforking is a requirement.
 
 
 ## [CGI::Emulate::PSGI](https://metacpan.org/pod/CGI::Emulate::PSGI) does the heavy lifting
@@ -170,7 +170,7 @@ Harry
 - then the [venerable CGI.pm](https://github.com/RotherOSS/otobo/blob/rel-10_0/Kernel/System/Web/Request.pm#L93) can kick in.
 
 
-## a persistent volume is required
+## Why is a persistent volume required ?
 
 - the directory structure of _/opt/otobo_ is a bit intertwined
 - OTOBO packages are installed into _/opt/otobo_
