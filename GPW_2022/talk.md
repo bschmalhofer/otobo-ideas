@@ -27,11 +27,11 @@ Work on OTOBO sponsored by Rother OSS
 
 ## What is OTOBO ?
 
-- An open source web based ticketing system
-- Where ticketing refers to help desk, not to concerts
-- Supports IT Service Management, ITSM
+- An open source web based helpdesk
+- From ticketing to complete IT Service Management
 - Forked from OTRS in 2019 by Rother OSS
-- Demo at <https://demo.otobo.org/otobo/index.pl>. Log in as Lena/Lena.
+- Agent demo at <https://demo.otobo.org/otobo/index.pl>. Log in as Lena/Lena.
+- Customer demo at <https://demo.otobo.org/otobo/customer.pl>. Log in as Felix/Felix.
 
 
 
