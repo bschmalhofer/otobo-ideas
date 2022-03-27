@@ -396,9 +396,9 @@ Throw an exception
 
 - (too) heavily used by OTOBO
 - Event handling depends on the destruction of objects at the end of a request
-- yet another middleware
 
-otobo.psgi:
+
+yet another middleware declared in otobo.psgi:
 
     my $ManageObjectsMiddleware = sub {
         my $App = shift;
