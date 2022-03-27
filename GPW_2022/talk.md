@@ -43,7 +43,7 @@ Work on OTOBO sponsored by Rother OSS
 
 
 
-## Meet the Team
+## Meet the Core Team
 
 Grit, Stefan, and Sven
 
@@ -61,12 +61,12 @@ Harry
 - 2001: OTRS started by Martin Edenhofer
 - 2003: OTRS 1.0 released, OTRS GmbH founded
 - 2007: OTRS GmbH becomes the OTRS AG
-- 2011: Rother OSS GmbH founded by Stefan Rother, first employee of OTRS GmbH
+- 2011: Rother OSS founded by Stefan Rother, first employee of OTRS GmbH
 - 2017: OTRS 6.0 was released, the basis for OTOBO
 - 2018: Rebranding as _((OTRS)) Community Edition_ and _OTRS_
 
 
-- 2019: Rother OSS forks OTOBO from _((OTRS)) Community Edition_. Development by Stefan and Sven.
+- 2019: Rother OSS forks OTOBO from _((OTRS)) Community Edition_
 - 2020-01-30: OTOBO 10.0.0 Beta 1
 - 2020-07-13: OTOBO 10.0.1 with Docker support. First part of this talk.
 - 2022-03-02: OTOBO 10.1.1 with PSGI everywhere. Second part of this talk.
@@ -130,8 +130,8 @@ Harry
 ## OTOBO 10.0 in Docker
 
 - we want a simple way of running OTOBO
-- with Gazelle running PSGI
-- .. and database, daemon, redis, elasticsearch
+- .. including database, daemon, redis, elasticsearch
+- implemented with Gazelle running PSGI
 - prior art by <https://hub.docker.com/r/juanluisbaptiste/otrs/>
 - see [Installing using Docker and Docker Compose](https://doc.otobo.org/manual/installation/10.0/en/content/installation-docker.html)
 
@@ -171,13 +171,12 @@ Harry
 - then the [venerable CGI.pm](https://github.com/RotherOSS/otobo/blob/rel-10_0/Kernel/System/Web/Request.pm#L93) can kick in.
 
 
-## Why is a persistent volume required ?
+## Why is a persistent OTOBO directory needed ?
 
-- OTOBO packages are installed into _/opt/otobo_
-- even worse: files may be overwritten
-- cache files are also written into the same dir structure
+- OTOBO addon packages are installed into _/opt/otobo_
+- CSS and JS cache files written into _/opt/otobo/var_
 - solved by using a [Docker volume](https://github.com/RotherOSS/otobo-docker/blob/rel-10_0/docker-compose/otobo-base.yml#L61)
-- core files are copied from _/opt/otobo\_install/otobo\_next_
+- core files are [copied](https://github.com/RotherOSS/otobo/blob/rel-10\_0/bin/docker/entrypoint.sh#L117) from _/opt/otobo\_install/otobo\_next_ to _/opt/otobo_
 
 
 
@@ -441,12 +440,11 @@ yet another middleware declared in otobo.psgi:
 - [OTRS on Wikipedia](https://de.wikipedia.org/wiki/OTRS)
 - [OTOBO on Github](https://github.com/RotherOSS/otobo)
 - [OTOBO Design](https://www.sanmiguel.io/de/projekte/ux-ui-muenchen/otobo-userinterface-design)
-- [Znuny under Docker](https://hub.docker.com/r/juanluisbaptiste/otrs/)
 - [From CGI to PSGI](https://perlmaven.com/from-cgi-to-psgi-and-starman)
 - [Porting guidelines](https://github.com/bschmalhofer/otobo-ideas#psgi-stumbling-blocks)
 
 
 ![OTOBO Marke](https://otobo.de/wp-content/uploads/2019/12/Otobo_Wortmarke_Sub_Digital_Blau_RGB-300x130.png)
 
-- Presentation with [reveal.js](https://revealjs.com/) and [App::HTTPThis](https://metacpan.org/dist/App-HTTPThis)
+- Presentation with [reveal.js](https://revealjs.com/) and [http\_this](https://metacpan.org/dist/App-HTTPThis)
 - These slides are available at <https://github.com/bschmalhofer/otobo-ideas/tree/master/GPW_2022>
