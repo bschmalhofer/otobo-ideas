@@ -172,12 +172,15 @@ Harry
 
 ## Why is a persistent volume required ?
 
-- the directory structure of _/opt/otobo_ is a bit intertwined
 - OTOBO packages are installed into _/opt/otobo_
 - even worse: files may be overwritten
 - cache files are also written into the same dir structure
 - solved by using a [Docker volume](https://github.com/RotherOSS/otobo-docker/blob/rel-10_0/docker-compose/otobo-base.yml#L61)
-- core files are copied from _/opt/otobo_install/otobo_next_
+- core files are copied from _/opt/otobo\_install/otobo\_next_
+
+
+
+![Sushi](https://images.otstatic.com/prod/24162634/1/medium.jpg)
 
 
 
