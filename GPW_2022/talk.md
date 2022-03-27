@@ -52,7 +52,7 @@ Grit, Stefan, and Sven
 
 Harry
 
-![Meet Harry](https://otobo.de/wp-content/uploads/2020/02/Harry_OTOBO-Maskottchen-2048x1365.jpeg)
+![Meet Harry](harry.jpg)
 
 
 
