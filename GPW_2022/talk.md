@@ -79,7 +79,8 @@ Harry
 - CGI scripts running under the handler [ModPerl::Registry](https://metacpan.org/dist/mod_perl/view/docs/api/ModPerl/Registry.pod)
 - relational database in the backend
 - Template Toolkit in the frontend
-- in between a lot of interface modules, not really a framework
+- in between a lot of interface modules
+- not really a framework
 
 
 ## Excursion 1
@@ -151,16 +152,16 @@ Harry
 
 ## Why Plack and not *your favorite framework* ?
 
-- there was no apparent immediate benefit
 - impedance mismatch
-- the required changes should be kept to a minimum.
+- no apparent immediate benefit
+- stick with keeping changes to a minimum.
 
 
 ## Why [Gazelle](https://metacpan.org/pod/Gazelle) ?
 
 - preforking is a requirement
-- no special reason, Starman works as well
-- advertised as "a Preforked Plack Handler for performance freaks"
+- but Starman would work just as well
+- Gazelle advertised as "a Preforked Plack Handler for performance freaks"
 
 
 ## [CGI::Emulate::PSGI](https://metacpan.org/pod/CGI::Emulate::PSGI) does the heavy lifting
