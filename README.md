@@ -6,6 +6,13 @@ Here are some ramblings.
 
 ## Ideas
 
+### Ideas for OTOBO 11.0
+
+* use `Capture::Tiny`
+* use `Feature::Compat::Try`
+* require Perl 5.26 from 2017, https://metacpan.org/release/XSAWYERX/perl-5.26.0/view/pod/perldelta.pod 
+* Support for `sd_notify()` in the OTOBO Daemon
+
 ### Open Ideas
 
 Some ideas I'm tinkering with.
@@ -20,15 +27,11 @@ Some ideas I'm tinkering with.
   * use `Mail::Message and Mail::Transport`
   * use `Log::Log4perl`
   * use `CHI`
-  * use `Capture::Tiny`
-  * use `Feature::Compat::Try`
   * Enhance import statements: https://metacpan.org/pod/perlimports
 * Testing
   * maybe use Plack::Test
   * check NYTProf again
   * Devel::Cover
-* Continous Integration
-  * pretty much still TODO
 * Translation
   * use N-tier translations, e.g. Portuguese falling back to Brazilian Portugues falling back to English
   * A Louisiana Crèole translation
@@ -45,9 +48,8 @@ Some ideas I'm tinkering with.
   * Support for status 103 though the code is still experimental: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103, https://metacpan.org/pod/Gazelle#psgix.informational
 * Devops
   * provide unit files for systemd 
-  * Support for `sd_notify()` in the OTOBO Daemon 
 * Security
-  * Find a maintained source of CPAN security advisories, like https://github.com/vti/cpan-security-advisory  
+  * Update CPAN::Audit
 * File system
   * When articles are stored in the file system the a directory tree with a lot of files is possible. This is a pain for backup. How about transfering old files to squashfs or such?
 * Events
