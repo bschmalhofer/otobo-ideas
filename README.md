@@ -13,7 +13,7 @@ Here are some ramblings.
 * use `Cpanel::JSON::XS`. https://github.com/RotherOSS/otobo/issues/399
 * Plack headers: https://github.com/RotherOSS/otobo/issues/2127
 * DBD::MariaDB, https://github.com/RotherOSS/otobo/issues/1860
-* require Perl 5.26 from 2017, https://metacpan.org/release/XSAWYERX/perl-5.26.0/view/pod/perldelta.pod 
+* require Perl 5.26 released in 2017, https://metacpan.org/release/XSAWYERX/perl-5.26.0/view/pod/perldelta.pod, nothing new in the feature bundle
 * Support for `sd_notify()` in the OTOBO Daemon
 * document deprecations https://github.com/RotherOSS/otobo/issues/1204
 * Allow bypass of ObjectManager, e.g. Kernel::System::DateTime, https://github.com/RotherOSS/otobo/discussions/1042, https://github.com/RotherOSS/otobo/issues/1993
