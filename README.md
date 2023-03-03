@@ -8,10 +8,19 @@ Here are some ramblings.
 
 ### Ideas for OTOBO 11.0
 
-* use `Capture::Tiny`
-* use `Feature::Compat::Try`
+* use `Capture::Tiny` https://github.com/RotherOSS/otobo/discussions/1042
+* use `Feature::Compat::Try`https://github.com/RotherOSS/otobo/issues/1695
+* use `Cpanel::JSON::XS`. https://github.com/RotherOSS/otobo/issues/399
+* Plack headers: https://github.com/RotherOSS/otobo/issues/2127
+* DBD::MariaDB, https://github.com/RotherOSS/otobo/issues/1860
 * require Perl 5.26 from 2017, https://metacpan.org/release/XSAWYERX/perl-5.26.0/view/pod/perldelta.pod 
 * Support for `sd_notify()` in the OTOBO Daemon
+* document deprecations https://github.com/RotherOSS/otobo/issues/1204
+* Allow bypass of ObjectManager, e.g. Kernel::System::DateTime, https://github.com/RotherOSS/otobo/discussions/1042, https://github.com/RotherOSS/otobo/issues/1993
+* Streaming, https://github.com/RotherOSS/otobo/discussions/1348
+* Cool URIs. https://github.com/RotherOSS/otobo/discussions/1599, https://github.com/RotherOSS/otobo/issues/116, https://github.com/RotherOSS/otobo/issues/1590
+* Remove example config for FastCGI: https://github.com/RotherOSS/otobo/issues/132
+* Simplify SELECTS. https://github.com/RotherOSS/otobo/issues/1916
 
 ### Open Ideas
 
