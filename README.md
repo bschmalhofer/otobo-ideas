@@ -21,6 +21,7 @@ Here are some ramblings.
 * Cool URIs. https://github.com/RotherOSS/otobo/discussions/1599, https://github.com/RotherOSS/otobo/issues/116, https://github.com/RotherOSS/otobo/issues/1590
 * Remove example config for FastCGI: https://github.com/RotherOSS/otobo/issues/132
 * Simplify SELECTS. https://github.com/RotherOSS/otobo/issues/1916
+* less magic in Kernel::System::Main::Dump(), https://github.com/RotherOSS/otobo/issues/694
 
 ### Open Ideas
 
