@@ -11,7 +11,6 @@ Here are some ramblings.
 * use `Capture::Tiny` https://github.com/RotherOSS/otobo/discussions/1042
 * use `Feature::Compat::Try`https://github.com/RotherOSS/otobo/issues/1695
 * use `Cpanel::JSON::XS`. https://github.com/RotherOSS/otobo/issues/399
-* Incoming HTTP headers: https://github.com/RotherOSS/otobo/issues/2127
 * Outgoing HTTP headers: https://github.com/RotherOSS/otobo/issues/1617
 * DBD::MariaDB, https://github.com/RotherOSS/otobo/issues/1860
 * require Perl 5.26 released in 2017, https://metacpan.org/release/XSAWYERX/perl-5.26.0/view/pod/perldelta.pod, nothing new in the feature bundle
