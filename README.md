@@ -17,7 +17,7 @@ Here are some ramblings.
 * Some kind of OTOBO Middleware: https://github.com/RotherOSS/otobo/issues/1617
 * require Perl 5.26 released in 2017, https://metacpan.org/release/XSAWYERX/perl-5.26.0/view/pod/perldelta.pod, nothing new in the feature bundle
 * Support for `sd_notify()` in the OTOBO Daemon
-* document deprecations https://github.com/RotherOSS/otobo/issues/1204
+* document deprecations and support policy: https://github.com/RotherOSS/otobo/issues/1204
 * Allow bypass of ObjectManager, e.g. Kernel::System::DateTime, https://github.com/RotherOSS/otobo/discussions/1112
 * Streaming, https://github.com/RotherOSS/otobo/discussions/1348
 * Cool URIs. https://github.com/RotherOSS/otobo/discussions/1599, https://github.com/RotherOSS/otobo/issues/116, https://github.com/RotherOSS/otobo/issues/1590
