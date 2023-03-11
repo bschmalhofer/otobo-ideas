@@ -12,8 +12,9 @@ Here are some ramblings.
 * use `Feature::Compat::Try`https://github.com/RotherOSS/otobo/issues/1695
 * use `Cpanel::JSON::XS`. https://github.com/RotherOSS/otobo/issues/399
 * Using Regexp::Common and Regexp::Grammar
-* Outgoing HTTP headers: https://github.com/RotherOSS/otobo/issues/1617
-* DBD::MariaDB, https://github.com/RotherOSS/otobo/issues/1860
+* use XML::LibXSLT
+* DBD::MariaDB instead of DBD::MySQL https://github.com/RotherOSS/otobo/issues/1860
+* Some kind of OTOBO Middleware: https://github.com/RotherOSS/otobo/issues/1617
 * require Perl 5.26 released in 2017, https://metacpan.org/release/XSAWYERX/perl-5.26.0/view/pod/perldelta.pod, nothing new in the feature bundle
 * Support for `sd_notify()` in the OTOBO Daemon
 * document deprecations https://github.com/RotherOSS/otobo/issues/1204
