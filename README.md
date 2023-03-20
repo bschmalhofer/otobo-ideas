@@ -15,7 +15,11 @@ Here are some ramblings.
 * use XML::LibXSLT
 * DBD::MariaDB instead of DBD::MySQL https://github.com/RotherOSS/otobo/issues/1860
 * Some kind of OTOBO Middleware: https://github.com/RotherOSS/otobo/issues/1617
-* require Perl 5.26 released in 2017, https://metacpan.org/release/XSAWYERX/perl-5.26.0/view/pod/perldelta.pod, nothing new in the feature bundle
+* require Perl 5.26 released in 2017
+    * https://metacpan.org/release/XSAWYERX/perl-5.26.0/view/pod/perldelta.pod
+    * indented heredocs: nice feature IMHO
+    * lexical subroutines: Should they be used?
+    * Somewhat unreleated: What about restricted hashes?
 * Support for `sd_notify()` in the OTOBO Daemon
 * document deprecations and support policy: https://github.com/RotherOSS/otobo/issues/1204
 * Allow bypass of ObjectManager, e.g. Kernel::System::DateTime, https://github.com/RotherOSS/otobo/discussions/1112
