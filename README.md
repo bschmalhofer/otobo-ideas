@@ -14,6 +14,7 @@ Here are some ramblings.
 * Using Regexp::Common and Regexp::Grammar
 * use XML::LibXSLT
 * DBD::MariaDB instead of DBD::MySQL https://github.com/RotherOSS/otobo/issues/1860
+* DB: last_insert_id(), fetch-Loop
 * Some kind of OTOBO Middleware: https://github.com/RotherOSS/otobo/issues/1617
 * require Perl 5.26 released in 2017
     * https://metacpan.org/release/XSAWYERX/perl-5.26.0/view/pod/perldelta.pod
