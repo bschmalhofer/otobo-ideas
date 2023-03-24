@@ -14,6 +14,7 @@ Here are some ramblings.
     * use `Cpanel::JSON::XS`. https://github.com/RotherOSS/otobo/issues/399
     * Using Regexp::Common and Regexp::Grammar
     * use XML::LibXSLT, declare it as a requirement
+    * Log::Log4perl, https://github.com/RotherOSS/otobo/issues/402
 * DB
     * DBD::MariaDB instead of DBD::MySQL https://github.com/RotherOSS/otobo/issues/1860
     * last_insert_id(), https://github.com/RotherOSS/otobo/issues/2232
