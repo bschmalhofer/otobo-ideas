@@ -8,14 +8,18 @@ Here are some ramblings.
 
 ### Ideas for OTOBO 11.0
 
-* use `Capture::Tiny` https://github.com/RotherOSS/otobo/discussions/1042
-* use `Feature::Compat::Try`https://github.com/RotherOSS/otobo/issues/1695
-* use `Cpanel::JSON::XS`. https://github.com/RotherOSS/otobo/issues/399
-* Using Regexp::Common and Regexp::Grammar
-* use XML::LibXSLT
-* DBD::MariaDB instead of DBD::MySQL https://github.com/RotherOSS/otobo/issues/1860
-* DB: last_insert_id(), fetch-Loop
-* Some kind of OTOBO Middleware: https://github.com/RotherOSS/otobo/issues/1617
+* Required modules
+    * use `Capture::Tiny` https://github.com/RotherOSS/otobo/discussions/1042
+    * use `Feature::Compat::Try`https://github.com/RotherOSS/otobo/issues/1695
+    * use `Cpanel::JSON::XS`. https://github.com/RotherOSS/otobo/issues/399
+    * Using Regexp::Common and Regexp::Grammar
+    * use XML::LibXSLT, declare it as a requirement
+* DB
+    * DBD::MariaDB instead of DBD::MySQL https://github.com/RotherOSS/otobo/issues/1860
+    * last_insert_id(), https://github.com/RotherOSS/otobo/issues/2232
+    * fetch-Loop, https://github.com/RotherOSS/otobo/issues/1916
+    * Simplify SELECTS. https://github.com/RotherOSS/otobo/issues/1916
+* Some kind of OTOBO Middleware: https://github.com/RotherOSS/otobo/discussions/2229
 * require Perl 5.26 released in 2017
     * https://metacpan.org/release/XSAWYERX/perl-5.26.0/view/pod/perldelta.pod
     * indented heredocs: nice feature IMHO
@@ -27,8 +31,8 @@ Here are some ramblings.
 * Streaming, https://github.com/RotherOSS/otobo/discussions/1348
 * Cool URIs. https://github.com/RotherOSS/otobo/discussions/1599, https://github.com/RotherOSS/otobo/issues/116, https://github.com/RotherOSS/otobo/issues/1590
 * Remove example config for FastCGI: https://github.com/RotherOSS/otobo/issues/132
-* Simplify SELECTS. https://github.com/RotherOSS/otobo/issues/1916
 * less magic in Kernel::System::Main::Dump(), https://github.com/RotherOSS/otobo/issues/694
+* Take a look at issues for rel-10_0: https://github.com/RotherOSS/otobo/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22OTOBO+10.0%22
 
 ### Open Ideas
 
