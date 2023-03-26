@@ -52,6 +52,7 @@ Some ideas I'm tinkering with.
   * use `Log::Log4perl`
   * use `CHI`
   * Enhance import statements: https://metacpan.org/pod/perlimports
+  * Debug modules: https://github.com/RotherOSS/otobo/issues/1843
 * Testing
   * maybe use Plack::Test
   * check NYTProf again
