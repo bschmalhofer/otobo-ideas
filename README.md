@@ -27,7 +27,6 @@ Here are some ramblings.
     * lexical subroutines: Should they be used?
     * Somewhat unreleated: What about restricted hashes?
 * Support for `sd_notify()` in the OTOBO Daemon
-* document deprecations and support policy: https://github.com/RotherOSS/otobo/issues/1204
 * Allow bypass of ObjectManager, e.g. Kernel::System::DateTime, https://github.com/RotherOSS/otobo/discussions/1112
 * Streaming, https://github.com/RotherOSS/otobo/discussions/1348
 * Cool URIs. https://github.com/RotherOSS/otobo/discussions/1599, https://github.com/RotherOSS/otobo/issues/116, https://github.com/RotherOSS/otobo/issues/1590
@@ -36,6 +35,7 @@ Here are some ramblings.
 * Unrelated:
     * Take a look at issues for rel-10_0: https://github.com/RotherOSS/otobo/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22OTOBO+10.0%22
     * Adapt unit tests in OTOBO packages
+    * document deprecations and support policy: https://github.com/RotherOSS/otobo/issues/1204
 
 ### Open Ideas
 
