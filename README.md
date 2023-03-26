@@ -33,7 +33,9 @@ Here are some ramblings.
 * Cool URIs. https://github.com/RotherOSS/otobo/discussions/1599, https://github.com/RotherOSS/otobo/issues/116, https://github.com/RotherOSS/otobo/issues/1590
 * Remove example config for FastCGI: https://github.com/RotherOSS/otobo/issues/132
 * less magic in Kernel::System::Main::Dump(), https://github.com/RotherOSS/otobo/issues/694
-* Take a look at issues for rel-10_0: https://github.com/RotherOSS/otobo/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22OTOBO+10.0%22
+* Unrelated:
+    * Take a look at issues for rel-10_0: https://github.com/RotherOSS/otobo/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22OTOBO+10.0%22
+    * Adapt unit tests in OTOBO packages
 
 ### Open Ideas
 
