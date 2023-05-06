@@ -21,6 +21,7 @@ Here are some ramblings.
     * fetch-Loop, https://github.com/RotherOSS/otobo/issues/1916
     * Simplify SELECTS. https://github.com/RotherOSS/otobo/issues/1916
 * Some kind of OTOBO Middleware: https://github.com/RotherOSS/otobo/discussions/2229
+* htmx: https://htmx.org/essays/when-to-use-hypermedia/
 * require Perl 5.26 released in 2017
     * https://metacpan.org/release/XSAWYERX/perl-5.26.0/view/pod/perldelta.pod
     * indented heredocs: nice feature IMHO
