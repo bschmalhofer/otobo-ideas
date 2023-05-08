@@ -31,7 +31,7 @@ Here are some ramblings.
 * Allow bypass of ObjectManager, e.g. Kernel::System::DateTime, https://github.com/RotherOSS/otobo/discussions/1112
 * Streaming, https://github.com/RotherOSS/otobo/discussions/1348
 * Cool URIs. https://github.com/RotherOSS/otobo/discussions/1599, https://github.com/RotherOSS/otobo/issues/116, https://github.com/RotherOSS/otobo/issues/1590
-* Remove example config for FastCGI: https://github.com/RotherOSS/otobo/issues/132
+* Remove example config for FastCGI: https://github.com/RotherOSS/otobo/issues/132, https://stackoverflow.com/questions/66417459/is-fcgi-dead-what-is-alternative-in-these-days
 * less magic in Kernel::System::Main::Dump(), https://github.com/RotherOSS/otobo/issues/694
 * Unrelated:
     * Take a look at issues for rel-10_0: https://github.com/RotherOSS/otobo/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22OTOBO+10.0%22
