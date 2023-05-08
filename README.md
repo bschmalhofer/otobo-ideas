@@ -26,7 +26,7 @@ Here are some ramblings.
     * https://metacpan.org/release/XSAWYERX/perl-5.26.0/view/pod/perldelta.pod
     * indented heredocs: nice feature IMHO
     * lexical subroutines: Should they be used?
-    * Somewhat unreleated: What about restricted hashes?
+    * Stay ahead of the Perl toolchain: https://rjbs.cloud/blog/2023/05/pts-2023-lyon-amendment-2-5 
 * Support for `sd_notify()` in the OTOBO Daemon
 * Allow bypass of ObjectManager, e.g. Kernel::System::DateTime, https://github.com/RotherOSS/otobo/discussions/1112
 * Streaming, https://github.com/RotherOSS/otobo/discussions/1348
