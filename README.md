@@ -9,7 +9,7 @@ Here are some ramblings.
 ### Ideas for OTOBO 11.0
 
 * Required modules
-    * use `Capture::Tiny` https://github.com/RotherOSS/otobo/discussions/1042
+   
     * use `Feature::Compat::Try`https://github.com/RotherOSS/otobo/issues/1695
     * use `Cpanel::JSON::XS`. https://github.com/RotherOSS/otobo/issues/399
     * Using Regexp::Common and Regexp::Grammar
@@ -84,6 +84,10 @@ Some ideas I'm tinkering with.
 
 ### Implemented, or Discarded, Ideas
 
+* use `Capture::Tiny` https://github.com/RotherOSS/otobo/discussions/1042
+
+  Done, required in OTOBO 11.0
+  
 * Use Github Issues for bugtracking
 
   Done, see https://github.com/RotherOSS/otobo/issues/.
