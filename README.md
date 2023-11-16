@@ -10,7 +10,7 @@ Here are some ramblings.
 
 * Required modules
    
-    * use `Feature::Compat::Try`https://github.com/RotherOSS/otobo/issues/1695
+   
     * use `Cpanel::JSON::XS`. https://github.com/RotherOSS/otobo/issues/399
     * Using Regexp::Common and Regexp::Grammar
     * use XML::LibXSLT, declare it as a requirement
@@ -83,6 +83,10 @@ Some ideas I'm tinkering with.
   * Alternatively switch to a real event queue like ActiveMQ or Minion  
 
 ### Implemented, or Discarded, Ideas
+
+* use `Feature::Compat::Try`https://github.com/RotherOSS/otobo/issues/1695
+
+  Rejected, not until "try catch" is no longer experimental, use Try::Tiny in the mean time
 
 * use `Capture::Tiny` https://github.com/RotherOSS/otobo/discussions/1042
 
