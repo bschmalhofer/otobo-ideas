@@ -9,14 +9,10 @@ Here are some ramblings.
 ### Ideas for OTOBO 11.0
 
 * Required modules
-   
-   
-    * use `Cpanel::JSON::XS`. https://github.com/RotherOSS/otobo/issues/399
     * Using Regexp::Common and Regexp::Grammar
     * use XML::LibXSLT, declare it as a requirement
     * Log::Log4perl, https://github.com/RotherOSS/otobo/issues/402
 * DB
-    * DBD::MariaDB instead of DBD::MySQL https://github.com/RotherOSS/otobo/issues/1860
     * last_insert_id(), https://github.com/RotherOSS/otobo/issues/2232
     * fetch-Loop, https://github.com/RotherOSS/otobo/issues/1916
     * Simplify SELECTS. https://github.com/RotherOSS/otobo/issues/1916
@@ -84,6 +80,14 @@ Some ideas I'm tinkering with.
 
 ### Implemented, or Discarded, Ideas
 
+* DBD::MariaDB instead of DBD::MySQL https://github.com/RotherOSS/otobo/issues/1860
+
+  Rejected, because DBD::MariaDB has a different, more correct, take on encodings
+  
+* use `Cpanel::JSON::XS`. https://github.com/RotherOSS/otobo/issues/399
+
+  Rejected because OTOBO is not prepared to deal with the differences with JSON::XS
+  
 * use `Feature::Compat::Try`https://github.com/RotherOSS/otobo/issues/1695
 
   Rejected, not until "try catch" is no longer experimental, use Try::Tiny in the mean time
