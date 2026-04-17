@@ -10,7 +10,6 @@ Here are some ramblings.
 
 * Required modules
     * Using Regexp::Common and Regexp::Grammar
-    * use XML::LibXSLT, declare it as a requirement
     * Log::Log4perl, https://github.com/RotherOSS/otobo/issues/402
 * DB
     * last_insert_id(), https://github.com/RotherOSS/otobo/issues/2232
@@ -80,13 +79,17 @@ Some ideas I'm tinkering with.
 
 ### Implemented, or Discarded, Ideas
 
+* use XML::LibXSLT, declare it as a requirement
+
+  Done
+  
 * DBD::MariaDB instead of DBD::MySQL https://github.com/RotherOSS/otobo/issues/1860
 
-  Rejected, because DBD::MariaDB has a different, more correct, take on encodings
+  Done in rel-11_1
   
 * use `Cpanel::JSON::XS`. https://github.com/RotherOSS/otobo/issues/399
 
-  Rejected because OTOBO is not prepared to deal with the differences with JSON::XS
+  Done in rel-11_1
   
 * use `Feature::Compat::Try`https://github.com/RotherOSS/otobo/issues/1695
 
