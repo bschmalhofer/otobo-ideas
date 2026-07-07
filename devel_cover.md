@@ -25,5 +25,5 @@ Within a running web container:
     # make the report viewable
     mv cover_db var/httpd/htdocs/static
 
-Ponder https://localhost:1490/otobo-web/static/cover\_db/coverage.html
+Ponder https://localhost:1490/otobo-web/static/cover_db/coverage.html
 or https://localhost:1490/otobo-web/static/cover_db/Kernel-System-TemplateGenerator-pm.html
