@@ -27,4 +27,5 @@ or https://localhost:1490/otobo-web/static/cover_db/Kernel-System-TemplateGenera
 
 `HARNESS_PERL_SWITCHES=-MDevel::Cover bin/otobo.Console.pl Dev::UnitTest::Run --test Replace.t`does not work.
 
-General scripts `perl -MDevel::Cover ...` 
+General scripts: `perl -MDevel::Cover ...`.
+Webserver: `plackup -MDevel::Cover ...`  
