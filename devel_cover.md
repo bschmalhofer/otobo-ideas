@@ -29,3 +29,5 @@ Ponder https://localhost:1490/otobo-web/static/cover_db/coverage.html
 or https://localhost:1490/otobo-web/static/cover_db/Kernel-System-TemplateGenerator-pm.html
 
 `HARNESS_PERL_SWITCHES=-MDevel::Cover bin/otobo.Console.pl Dev::UnitTest::Run --test Replace.t`does not work.
+
+General scripts `perl -MDevel::Cover ...` 
