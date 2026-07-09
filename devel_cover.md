@@ -14,16 +14,13 @@ Within a running web container:
     which cover
 
     # a clean slate
-    cover -delete
+    cover -delete var/httpd/htdocs/static/cover_db/
 
     # do some work, the webserver and the daemon are not under coverage scrutiny
-    HARNESS_PERL_SWITCHES=-MDevel::Cover prove -v --merge -I . -I Kernel/cpan-lib scripts/test/TemplateGenerator | tee prove.out
+    HARNESS_PERL_SWITCHES=-MDevel::Cover=-db,var/httpd/htdocs/static/cover_db prove -v --merge -I . -I Kernel/cpan-lib scripts/test/TemplateGenerator | tee prove.out
 
     # create a report
-    cover
-
-    # make the report viewable
-    mv cover_db var/httpd/htdocs/static
+    cover var/httpd/htdocs/static/cover_db
 
 Ponder https://localhost:1490/otobo-web/static/cover_db/coverage.html
 or https://localhost:1490/otobo-web/static/cover_db/Kernel-System-TemplateGenerator-pm.html
